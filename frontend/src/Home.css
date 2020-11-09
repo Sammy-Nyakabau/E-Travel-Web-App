@@ -1,0 +1,51 @@
+.section1_caption {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  max-width: 700px;
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #484848;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+}
+.section1 {
+  background: #f7f7f7;
+}
+.section2 {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.section2_left > p {
+  max-width: 200px;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  font-size: 26px !important;
+  line-height: 30px !important;
+  color: #222222 !important;
+  font-weight: 600 !important;
+  max-width: 380px !important;
+  margin-right: 32px;
+}
+.section2_right > p {
+  max-width: 400px;
+  font-size: 18px !important;
+  line-height: 28px !important;
+  color: #222222;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+.home__section{
+    display: flex;
+    padding:30px;
+}
+/* * {
+  outline: solid #f00 1px;
+} */
