@@ -1,9 +1,9 @@
 import React from "react";
-import "./Home.css";
-import Banner from "./Banner";
-import Card from "./Card";
-import Filter1 from "./Filter1";
-import Footer from "./Footer"
+import Filter1 from "../components/Filter1";
+import Footer from "../components/Footer"
+import "../styles/Home.css";
+import Banner from "../components/Banner";
+import Card from "../components/Card";
 
 function Home() {
   return (
