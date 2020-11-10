@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./Header.css";
-import SearchIcon from "@material-ui/icons/Search";
+import "../styles/Header.css";
+// import SearchIcon from "@material-ui/icons/Search";
 import LanguageIcon from "@material-ui/icons/Language";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Avatar } from "@material-ui/core";
