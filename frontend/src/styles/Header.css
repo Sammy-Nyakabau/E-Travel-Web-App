@@ -9,6 +9,7 @@
     z-index:100;
     width:100%;
     color: white;
+    transition: background-color ease 300ms;
     
 }
 .header.active{
