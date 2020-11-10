@@ -1,5 +1,5 @@
 import React from "react";
-import "./Filter1.css"
+import "../styles/Filter1.css"
 
 function Filter1() {
   return (

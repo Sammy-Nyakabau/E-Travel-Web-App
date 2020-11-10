@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react'
-import "./Footer.css"
+import "../styles/Footer.css"
 
 function Footer() {
     return (
