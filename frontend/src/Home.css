@@ -40,12 +40,28 @@
   font-size: 18px !important;
   line-height: 28px !important;
   color: #222222;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
 }
-.home__section{
-    display: flex;
-    padding:30px;
+.home__section {
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
 }
+.filter_section {
+  margin-left: 150px;
+  margin-right: 150px;
+  font-size: 18px !important;
+  line-height: 28px !important;
+  color: #222222;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+    padding-bottom:50px;
+}
+.filter_section>h1{
+  padding-bottom:30px;
+}
+
 /* * {
   outline: solid #f00 1px;
 } */

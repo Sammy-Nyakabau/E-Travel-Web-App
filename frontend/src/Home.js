@@ -2,6 +2,8 @@ import React from "react";
 import "./Home.css";
 import Banner from "./Banner";
 import Card from "./Card";
+import Filter1 from "./Filter1";
+import Footer from "./Footer"
 
 function Home() {
   return (
@@ -26,24 +28,29 @@ function Home() {
           </p>
         </div>
       </div>
-      <div className='home__section'>
-            <Card
-                src="https://a0.muscache.com/im/pictures/a17609e2-d762-4365-a313-62e619e59872.jpg?im_w=720"
-                title="Homes"
-                description="Comfortable places with all the essentials"
-            />
-            <Card
-                src="https://a0.muscache.com/im/pictures/f20dbdb1-05b5-4f01-97ba-b113edc20795.jpg?im_w=720"
-                title="Hotels"
-                description="Stylish accomadations amenities"
-            />
-            <Card
-                src="https://a0.muscache.com/im/pictures/62d0e70e-7107-4d1b-beb5-21f0ad2bb811.jpg?im_w=720"
-                title="Unique Stays"
-                description="Spaces that are more than just a place to sleep"
-            />
-            </div>
-            
+
+      <div className="home__section">
+        <Card
+          src="https://diy.sndimg.com/content/dam/images/diy/fullset/2014/3/5/0/RX-Oak-Alley-Plantation-Vacherie-Louisiana_h.jpg.rend.hgtvcom.406.305.suffix/1420866006581.jpeg"
+          title="Historical locations"
+          description="Experience the history by living in it"
+        />
+        <Card
+          src="https://cf.bstatic.com/data/xphoto/1182x887/318/31829876.jpg?size=S"
+          title="Breathtaking Experiences"
+          description="Giving you the most fulfilling life experiences."
+        />
+        <Card
+          src="https://a0.muscache.com/im/pictures/62d0e70e-7107-4d1b-beb5-21f0ad2bb811.jpg?im_w=720"
+          title="Unique Stays"
+          description="Spaces that are more than just a place to sleep"
+        />
+      </div>
+      <div className="filter_section">
+        <h1>Travel Inspiration</h1>
+        <Filter1 />
+      </div>
+      <Footer/>
     </div>
   );
 }

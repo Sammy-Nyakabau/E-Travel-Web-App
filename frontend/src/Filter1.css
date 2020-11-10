@@ -1,0 +1,14 @@
+.filter1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  text-align: center;
+}
+.option {
+  align-items: center;
+  font-size: 18px;
+}
+.option > img {
+  max-width: 40px;
+}
