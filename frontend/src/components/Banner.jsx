@@ -45,7 +45,9 @@ class Banner extends Component {
               id="quantity"
               name="quantity"
               placeholder="0"
+              min="1" max="3"
             />
+            
           </div>
           <div className="Search_button">
             <button className="Search">
