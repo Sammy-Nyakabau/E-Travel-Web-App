@@ -22,19 +22,31 @@
 }
 .CalendarDay__selected {
     
-    background: rgb(6, 2, 41);
-    color:white;
-    border-color: #E4E7E7;
-  }
-  .CalendarDay__selected_span {
-   
     background: black;
     color:white;
     border-color: #E4E7E7;
   }
   .CalendarDay__selected:hover {
-    background:white;
-    color: black;
+    
+    background: black;
+    color:white;
+    border-color: #E4E7E7;
+  }
+  .CalendarDay__selected_span {
+   
+    background: grey;
+    color:white;
+    border-color: #E4E7E7;
+  }
+  .CalendarDay__selected_span:hover {
+   
+    background: grey;
+    color:white;
+    border-color: #E4E7E7;
+  }
+  .CalendarDay__selected:hover {
+    background:black;
+    color: white;
   }
 .CalendarDay__hovered_span:hover,
 .CalendarDay__hovered_span {
