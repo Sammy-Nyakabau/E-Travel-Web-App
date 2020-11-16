@@ -2,10 +2,10 @@ import React from "react";
 import Filter1 from "../components/Filter1";
 import Footer from "../components/Footer"
 import "../styles/Home.css";
-import 'react-dates/lib/css/_datepicker.css';
-import "../styles/React_dates_overrides.css";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
+import "../styles/React_dates_overrides.css";
+
 
 function Home() {
   return (
@@ -30,10 +30,10 @@ function Home() {
           </p>
         </div>
       </div>
-      <div className="filter_section">
-        {/* <h1>Travel Inspiration</h1> */}
+      {/* <div className="filter_section">
+        <h1>Travel Inspiration</h1>
         <Filter1 />
-      </div>
+      </div> */}
       <div className="home__section">
         <Card
           src="https://diy.sndimg.com/content/dam/images/diy/fullset/2014/3/5/0/RX-Oak-Alley-Plantation-Vacherie-Louisiana_h.jpg.rend.hgtvcom.406.305.suffix/1420866006581.jpeg"
