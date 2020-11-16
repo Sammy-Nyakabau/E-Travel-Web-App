@@ -1,0 +1,14 @@
+
+
+.DateInput_input__focus{
+    background-color:#DBDBDB;
+}
+.DateRangePickerInput__withBorder{
+    border: 1px solid white;
+}
+.DateInput{
+    background-color:#DBDBDB;
+}
+.DateRangePickerInput_arrow_svg{
+    display:none;
+}

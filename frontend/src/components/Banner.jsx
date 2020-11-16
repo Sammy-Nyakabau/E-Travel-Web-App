@@ -25,7 +25,7 @@ class Banner extends Component {
             <input type="text" placeholder="Anywhere" />
           </div>
           <div className="check_tab">
-            <DateRangePicker
+          <DateRangePicker
               startDate={this.state.startDate} // momentPropTypes.momentObj or null,
               startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
               endDate={this.state.endDate} // momentPropTypes.momentObj or null,

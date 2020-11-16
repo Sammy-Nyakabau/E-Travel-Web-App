@@ -56,10 +56,13 @@
   color: #222222;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
     Helvetica Neue, sans-serif;
-    padding-bottom:50px;
 }
-.filter_section>h1{
-  padding-bottom:30px;
+.filter_section > h1 {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-evenly;
 }
 
 /* * {

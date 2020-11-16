@@ -14,16 +14,14 @@
   
   .card > img {
     object-fit: fill;
-    max-width: 400px;
-    max-height: 180px;
     width: 100%;
   }
   
   .card__info {
       margin-top: -9px;
       border-radius: 10px;
-      padding-left: 20px;
-      padding-top: 10px;
+      padding: 20px;
+      padding-top: 20px;
       border: 1;
     }
   

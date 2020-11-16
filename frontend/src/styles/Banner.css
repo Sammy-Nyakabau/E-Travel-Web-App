@@ -7,13 +7,13 @@
   width: 100%;
 }
 
-.location {
+/* .location {
   border-right: 1px solid grey;
 }
 
 .people {
   border-right: 1px solid grey;
-}
+} */
 .location > p {
   font-size: 15px;
   margin: 0px;
@@ -24,10 +24,10 @@
   margin: 0px;
 }
 
-.check_tab {
+/* .check_tab {
   border-right: 1px solid grey;
   padding-right: 50px;
-}
+} */
 .selector {
   position: relative;
   top: 23vw;
@@ -35,7 +35,7 @@
   display: flex;
   align-items: center;
   background-color: white;
-  width: 65%;
+  width: 70%;
   border-radius: 9px;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -53,7 +53,7 @@
 }
 .location > input {
   border: none;
-  width: 300px;
+  width: 230px;
   outline-width: 0px;
   background: transparent;
   font-size: 16px;
