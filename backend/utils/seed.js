@@ -2,7 +2,7 @@ const axios = require("axios");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const { Listing } = require("./models/listings");
+const { Listing } = require("../models/listings");
 const db = process.env.MONGO;
 const key = process.env.API_KEY;
 
@@ -32,6 +32,6 @@ const options = {
   console.info(`Done with page ${pageNumber}`);
 }
 
-for (let page = 4; page < 99; page++) {
+for (let page = 1; page < 99; page++) {
   seed(page);
 }
