@@ -1,6 +1,6 @@
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
-const logger = require("../startup/logger");
+const logger = require("../config/logger");
 const session = require("express-session");
 const authDebugger = require("debug")("app:auth");
 const LocalStrategy = require("passport-local");
