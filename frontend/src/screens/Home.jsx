@@ -1,9 +1,10 @@
 import React from "react";
-import Filter1 from "../components/Filter1";
+
 import Footer from "../components/Footer"
-import "../styles/Home.css";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
+
+import "../styles/Home.css";
 import "../styles/React_dates_overrides.css";
 
 
