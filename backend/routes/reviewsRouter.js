@@ -1,4 +1,4 @@
-const { Review } = require("../models/reviews");
+const { Review } = require("../models/reviewsModel");
 const express = require("express");
 const router = express.Router();
 

@@ -8,4 +8,7 @@ const getListings = async (req, res) => {
   res.send(listings);
 };
 
-module.exports = { getListings };
+
+module.exports = {
+  getListings,
+};

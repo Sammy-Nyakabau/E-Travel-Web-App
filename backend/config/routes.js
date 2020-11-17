@@ -3,7 +3,7 @@ const express = require("express");
 const error = require("../middleware/error");
 
 const listings = require("../routes/listingsRouter");
-const users = require("../routes/users");
+const users = require("../routes/usersRouter");
 
 module.exports = function (app) {
   app.use(express.json());
