@@ -13,6 +13,7 @@ function SearchResult({
     star,
     price,
     total,
+    property_type
 }) {
     return (
         <div className='searchResult'>
@@ -23,7 +24,7 @@ function SearchResult({
                 <div className="searchResult__infoTop">
                     <p>{location}</p>
                     <h3>{title}</h3>
-                    <p>____</p>
+                    <p>{property_type}</p>
                     <p>{description}</p>
                 </div>
 

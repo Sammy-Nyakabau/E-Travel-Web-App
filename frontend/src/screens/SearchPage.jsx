@@ -22,15 +22,16 @@ function SearchPage() {
         <Button variant="outlined">More filters</Button>
       </div>
 
-      {listings.map(listing => (
-        <SearchResult 
-        img={listing.image}
-        location={listing.address}
-        title={listing.name}
-        description="1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine"
-        star={listing.star_rating}
-        price={`$${listing.night_price}/ night`}
-        total="$117 total"
+      {listings.map((listing) => (
+        <SearchResult
+          img={listing.image}
+          location={listing.address}
+          title={listing.name}
+          description={`${listing.capacity_of_people} guest(s) · ${listing.num_of_rooms} room(s) · ${listing.num_of_beds} bed(s) · ${listing.num_of_baths} bathroom(s)`}
+          star={listing.start_rating}
+          property_type={listing.property_type}
+          price={`$${listing.night_price}/ night`}
+          total="$117 total"
         />
       ))}
 

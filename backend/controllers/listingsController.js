@@ -4,10 +4,9 @@ const { Listing } = require("../models/listingsModel");
 // @route   GET /api/listings
 // @access  Public
 const getListings = async (req, res) => {
-  const listings = await Listing.find().select("-__v").sort("name");
+  const listings = await Listing.find().select("-__v").sort("name").limit(20);
   res.send(listings);
 };
-
 
 module.exports = {
   getListings,
