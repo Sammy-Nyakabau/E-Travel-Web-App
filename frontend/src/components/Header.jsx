@@ -4,6 +4,8 @@ import LanguageIcon from "@material-ui/icons/Language";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import Dropdown_options from "./Dropdown_options"
+
 
 
 import "../styles/Header.css";
@@ -23,8 +25,9 @@ function Header() {
   window.addEventListener("scroll", changeBackground);
   return (
     <div className={header ? "header active" : "header"}>
-        
+       <Link to="/" style={{ color: 'inherit', textDecoration:"inherit"}}>
       <h1 className="header_icon">Atlantis</h1>
+      </Link> 
 
       {/* <div className="header_center">
         <input type="text" />
@@ -36,7 +39,9 @@ function Header() {
         </Link>
         <LanguageIcon />
         <ExpandMoreIcon />
-        <Avatar />
+        {/* <Avatar /> */}
+        <Dropdown_options/>
+       
       </div>
     </div>
   );

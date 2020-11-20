@@ -28,7 +28,11 @@
   border-right: 1px solid grey;
   padding-right: 50px;
 } */
+
 .selector {
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
   position: relative;
   top: 23vw;
   justify-content: space-between;
@@ -37,8 +41,6 @@
   background-color: white;
   width: 55%;
   border-radius: 10px;
-  left: 50%;
-  transform: translate(-50%, -50%);
   padding: 10px;
   padding-right: 20px;
   padding-left: 20px;
@@ -47,9 +49,9 @@
   position: relative;
   top: 8vw;
   color: white;
-  margin-left: 40%;
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
   font-size: 40px;
+  text-align: center;
 }
 .location > input {
   border: none;

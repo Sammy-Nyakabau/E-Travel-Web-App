@@ -2,9 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./screens/Home";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import SearchPage from "./screens/SearchPage";
+import Profile from "./screens/Profile";
+import Header from "./components/Header"
+import Header_solid from "./components/Header_solid"
+import Footer from "./components/Footer"
+import SearchPage from "./screens/SearchPage"
 
 function App() {
   return (
@@ -15,6 +17,13 @@ function App() {
             <Header />
             <SearchPage />
             <Footer />
+
+          </Route>
+
+          <Route path="/Profile">
+            <Header_solid />
+            <Profile/>
+            <Footer/>
           </Route>
 
           <Route path="/">
@@ -28,4 +37,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
