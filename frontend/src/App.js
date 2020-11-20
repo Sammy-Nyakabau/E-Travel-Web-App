@@ -5,8 +5,8 @@ import Header from "./components/Header"
 import Header_solid from "./components/Header_solid"
 import Footer from "./components/Footer"
 import SearchPage from "./screens/SearchPage"
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 function App() {
   return (
     <Router>
@@ -16,6 +16,7 @@ function App() {
             <Header />
             <SearchPage />
             <Footer />
+
           </Route>
 
           <Route path="/Profile">
@@ -35,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

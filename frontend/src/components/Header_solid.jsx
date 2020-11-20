@@ -9,6 +9,7 @@ import 'semantic-ui-css/semantic.min.css'
 import { Dropdown } from 'semantic-ui-react'
 import Dropdown_options from "./Dropdown_options"
 
+import "../styles/Header_solid.css";
 
 function Header_solid() {
   return (
