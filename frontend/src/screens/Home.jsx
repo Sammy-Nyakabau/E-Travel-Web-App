@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import Footer from "../components/Footer"
 // import { Link } from "react-router-dom";
 import "../styles/Home.css";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 
+import { getListings } from "../services/listingsService";
 import "../styles/Home.css";
 import "../styles/React_dates_overrides.css";
 
-
 function Home() {
+  const [listings, setListings] = useState([]);
+
+  useEffect(() => {
+    const fetchListings = async () => {
+      const { data: result } = await getListings();
+      setListings(result);
+    };
+
+    fetchListings();
+  }, [listings]);
+
   return (
     <div className="home">
       <Banner />
@@ -109,7 +119,6 @@ function Home() {
           title="Guesthouse"
         />
       </div>
-      
     </div>
   );
 }

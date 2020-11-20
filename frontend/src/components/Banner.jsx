@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import "../styles/Banner.css";
 import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
 import {
   DateRangePicker,
   // SingleDatePicker,
   // DayPickerRangeController,
 } from "react-dates";
+
+import "../styles/Banner.css";
+import "react-dates/lib/css/_datepicker.css";
 
 class Banner extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class Banner extends Component {
       endDate: null,
     };
   }
+  
   render() {
     return (
       <div className="banner">
