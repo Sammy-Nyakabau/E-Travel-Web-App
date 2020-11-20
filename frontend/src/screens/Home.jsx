@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 
 // import { Link } from "react-router-dom";
@@ -6,11 +7,13 @@ import Banner from "../components/Banner";
 import Card from "../components/Card";
 
 import { getListings } from "../services/listingsService";
+import { useStateValue } from "../reducer/StateProvider";
 import "../styles/Home.css";
 import "../styles/React_dates_overrides.css";
 
 function Home() {
   const [listings, setListings] = useState([]);
+  const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -19,7 +22,12 @@ function Home() {
     };
 
     fetchListings();
-  }, [listings]);
+
+    dispatch({
+      type: "SET_LISTINGS",
+      items: listings,
+    });
+  }, [dispatch, listings]);
 
   return (
     <div className="home">
