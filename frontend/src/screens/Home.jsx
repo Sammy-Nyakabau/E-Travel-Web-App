@@ -1,10 +1,12 @@
 import React from "react";
-import Filter1 from "../components/Filter1";
+
 import Footer from "../components/Footer"
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "../styles/Home.css";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
+
+import "../styles/Home.css";
 import "../styles/React_dates_overrides.css";
 
 
