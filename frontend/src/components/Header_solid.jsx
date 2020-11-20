@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import "../styles/Header_solid.css";
+import React from "react";
 // import SearchIcon from "@material-ui/icons/Search";
 import LanguageIcon from "@material-ui/icons/Language";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
+import "../styles/Header_solid.css";
 
 function Header_solid() {
-  c
   return (
     <div className="header">
         
