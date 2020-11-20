@@ -1,9 +1,11 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import Home from "./screens/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SearchPage from "./screens/SearchPage";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 function App() {
   return (
     <Router>

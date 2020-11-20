@@ -23,7 +23,7 @@ function Home() {
 
   return (
     <div className="home">
-      <Banner />
+      <Banner listings={listings} />
 
       <div className="section1">
         <p className="section1_caption">
