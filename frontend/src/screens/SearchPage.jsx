@@ -1,13 +1,13 @@
 import React from 'react';
+import "../styles/SearchPage.css";
+import SearchPage_banner from "../components/SearchPage_banner"
 import { Button } from "@material-ui/core";
-
-import SearchResult from "./SearchResult";
-
-import './SearchPage.css';
+import SearchResult from "../components/SearchResult";
 
 function SearchPage() {
     return (
         <div className='searchPage'>
+            <SearchPage_banner/>
             <div className='searchPage__info'>
                 <p>62 stays · 26 august to 30 august · 2 guest</p>
                 <h1>Stays nearby</h1>

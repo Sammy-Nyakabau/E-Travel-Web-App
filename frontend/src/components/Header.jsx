@@ -3,11 +3,14 @@ import React, { useState } from "react";
 import LanguageIcon from "@material-ui/icons/Language";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Avatar } from "@material-ui/core";
+import { Link } from "react-router-dom";
+
 
 import "../styles/Header.css";
 
 function Header() {
   const [header, setheader] = useState(false);
+
 
   const changeBackground = () => {
     console.log(window.ScrollY);
@@ -28,7 +31,9 @@ function Header() {
         <SearchIcon />
       </div> */}
       <div className="header_right">
+       <Link to="/SearchPage" style={{ color: 'inherit', textDecoration:"inherit"}}>
         <p>Our Locations</p>
+        </Link>
         <LanguageIcon />
         <ExpandMoreIcon />
         <Avatar />

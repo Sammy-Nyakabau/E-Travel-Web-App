@@ -1,5 +1,6 @@
+
 .searchPage__info {
-    padding: 20px;
+  padding: 20px;
   }
 
 .searchPage__info > p {
@@ -15,4 +16,8 @@
     border-radius: 30px;
     text-transform: inherit;
     margin: 5px;
+  }
+  .searchPage{
+    position: relative;
+    top: -27px; 
   }

@@ -1,6 +1,8 @@
 import React from "react";
 
 import Footer from "../components/Footer"
+// import { Link } from "react-router-dom";
+import "../styles/Home.css";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 
@@ -108,7 +110,6 @@ function Home() {
         />
       </div>
       
-      <Footer/>
     </div>
   );
 }
