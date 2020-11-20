@@ -4,8 +4,6 @@ import SearchPage_banner from "../components/SearchPage_banner"
 import { Button } from "@material-ui/core";
 import SearchResult from "../components/SearchResult";
 
-import './SearchPage.css';
-
 function SearchPage() {
     return (
         <div className='searchPage'>
