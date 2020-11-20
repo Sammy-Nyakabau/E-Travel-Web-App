@@ -1,20 +1,21 @@
-import React from 'react'
+import React from "react";
 import Home from "./screens/Home";
 import Profile from "./screens/Profile";
 import Header from "./components/Header"
 import Header_solid from "./components/Header_solid"
 import Footer from "./components/Footer"
 import SearchPage from "./screens/SearchPage"
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
-    return (
-        <Router>
-        <div className="app">
-            <Switch>
+  return (
+    <Router>
+      <div className="app">
+        <Switch>
           <Route path="/SearchPage">
             <Header />
-            <SearchPage/>
-            <Footer/>
+            <SearchPage />
+            <Footer />
           </Route>
 
           <Route path="/Profile">
@@ -25,13 +26,13 @@ function App() {
 
           <Route path="/">
             <Header />
-            <Home/>
-            <Footer/>
+            <Home />
+            <Footer />
           </Route>
-          </Switch>
-          </div>
-        </Router>
-    )
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
