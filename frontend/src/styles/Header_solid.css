@@ -1,15 +1,17 @@
-.header{
+.header_solid{
     display: flex;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+    padding-top:20px;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: sticky;
     top:0;
     background:white;
     z-index:100;
     width:100%;
+    opacity:100%;
     color: black;
-    transition: background-color ease 300ms;
+    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.25);
     
 }
 .header.active{

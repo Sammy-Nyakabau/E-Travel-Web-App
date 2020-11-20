@@ -1,0 +1,54 @@
+/* *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  input[type=text] {
+    padding: 10px;
+    border:0; 
+    border-bottom:1px solid #eee;
+  }
+  input[type=text] {
+    padding:10px;
+    margin:10px 0; 
+  }
+  .border-bottom-input {
+    border:0; 
+    border-bottom:1px solid #eee;
+  }
+  */
+  .profile{
+      margin-left: 300px;
+      margin-top:50px;
+  } 
+
+  .personal_infor{
+    margin: 0px !important;
+    overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    line-height: 1.125em !important;
+    color: rgb(72, 72, 72) !important;
+    
+  }
+.input_section1{
+    
+    margin-top: 40px;
+    margin-bottom: 50px ;
+    overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.375em !important;
+    color: rgb(72, 72, 72) !important;
+}
+  .inputbox {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    width: 40%;
+    padding: 10px 0px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 0.5px solid #EBEBEB;
+    background: transparent;
+  }

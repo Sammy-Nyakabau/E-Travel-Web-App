@@ -19,6 +19,7 @@ class Banner extends Component {
   render() {
     return (
       <div className="banner">
+        <div className="selector_outer">
         <div className="selector">
           <div className="location">
             <p>Location</p>
@@ -54,6 +55,7 @@ class Banner extends Component {
               <p>Search</p>
             </button>
           </div>
+        </div>
         </div>
         <h1 className="caption">live your dreams</h1>
       </div>
