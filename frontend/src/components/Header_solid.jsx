@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import "../styles/Header_solid.css";
 // import SearchIcon from "@material-ui/icons/Search";
