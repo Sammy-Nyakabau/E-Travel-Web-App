@@ -35,9 +35,11 @@ function Header() {
       </div> */}
       <div className="header_right">
        <Link to="/SearchPage" style={{ color: 'inherit', textDecoration:"inherit"}}>
-        <p>Our Locations</p>
+        <p>Our Listings</p>
         </Link>
+        <Link to="/Hotel" style={{ color: 'inherit', textDecoration:"inherit"}}>
         <LanguageIcon />
+        </Link>
         <ExpandMoreIcon />
         {/* <Avatar /> */}
         <Dropdown_options/>

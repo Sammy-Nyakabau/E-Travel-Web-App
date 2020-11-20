@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./screens/Home";
 import Profile from "./screens/Profile";
+import Hotel from "./screens/Hotel";
 import Header from "./components/Header"
 import Header_solid from "./components/Header_solid"
 import Footer from "./components/Footer"
@@ -22,6 +23,12 @@ function App() {
           <Route path="/Profile">
             <Header_solid />
             <Profile/>
+            <Footer/>
+          </Route>
+
+          <Route path="/Hotel">
+            <Header_solid />
+            <Hotel/>
             <Footer/>
           </Route>
 
