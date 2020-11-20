@@ -1,29 +1,29 @@
-import React from 'react'
+import React from "react";
 import Home from "./screens/Home";
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-import SearchPage from "./screens/SearchPage"
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import SearchPage from "./screens/SearchPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
-    return (
-        <Router>
-        <div className="app">
-            <Switch>
+  return (
+    <Router>
+      <div className="app">
+        <Switch>
           <Route path="/SearchPage">
             <Header />
-            <SearchPage/>
-            <Footer/>
+            <SearchPage />
+            <Footer />
           </Route>
 
           <Route path="/">
             <Header />
-            <Home/>
-            <Footer/>
+            <Home />
+            <Footer />
           </Route>
-          </Switch>
-          </div>
-        </Router>
-    )
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
