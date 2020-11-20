@@ -32,9 +32,27 @@ function Hotel() {
             </div>
             </div>
             </div>
+            <div className="hotel_writeup">
+            Perfect for groups looking to explore the San Diego beach area!<br/><br/>
+
+            Come and enjoy a Bed in a Mixed Dorm Room at the Beach Bungalow Surf Hostel in Pacific Beach, in San Diego.<br/><br/>
+
+            We are located ocean front and offer daily free activities , free breakfast, light dinner, towels, communal kitchen, laundry, paid raking and free usage of beach items & WiFi.
+
+            Rental for surf boards, wet suit, snorkels and bicycles at our reception.<br/><br/>
+
+            This listing is for 1 guest in our 12 bed mixed dorm.<br/><br/>
+
+            The space<br/>
+            We are a 80 bed hostel located beach front.<br/><br/>
+            It is not possible to rent the whole house, only a whole room. The common areas are shared with everyone in the house.
+            </div>
             </div>
             <div className="hotel_right">
             <p>we will have the hovering card here</p>
+            <div className="hotel-reviews">
+                
+            </div>
             </div>
         </div>
     )
