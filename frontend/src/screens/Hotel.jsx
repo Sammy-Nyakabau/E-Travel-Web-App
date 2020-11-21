@@ -33,26 +33,46 @@ function Hotel() {
             </div>
             </div>
             <div className="hotel_writeup">
-            Perfect for groups looking to explore the San Diego beach area!<br/><br/>
+            Perfect for groups looking to explore the San Diego beach area!<br/>
 
-            Come and enjoy a Bed in a Mixed Dorm Room at the Beach Bungalow Surf Hostel in Pacific Beach, in San Diego.<br/><br/>
+            Come and enjoy a Bed in a Mixed Dorm Room at the Beach Bungalow Surf Hostel in Pacific Beach, in San Diego.<br/>
 
             We are located ocean front and offer daily free activities , free breakfast, light dinner, towels, communal kitchen, laundry, paid raking and free usage of beach items & WiFi.
 
-            Rental for surf boards, wet suit, snorkels and bicycles at our reception.<br/><br/>
+            Rental for surf boards, wet suit, snorkels and bicycles at our reception.<br/>
 
-            This listing is for 1 guest in our 12 bed mixed dorm.<br/><br/>
+            This listing is for 1 guest in our 12 bed mixed dorm.<br/>
 
-            The space<br/>
-            We are a 80 bed hostel located beach front.<br/><br/>
+            The space:<br/>
+            We are a 80 bed hostel located beach front.<br/>
             It is not possible to rent the whole house, only a whole room. The common areas are shared with everyone in the house.
+            </div>
+            <div className="hotel_location_google">
+                <p>Location</p>
+                <div className="hotel_location_image">
+                    <img src="https://developers.google.com/location-context/images/geofencing_landing.png"/>
+                </div>
+            </div>
+            <div className="hotel-reviews">
+                <div className="review_rating">
+                <StarIcon style={{fill: "FF9529"}}/><p className="rating_number">4.5(19)</p>
+                </div>
+                <div className="review">
+                    <div className="reviewer_info">
+                        <div className="reviewer_photo">
+                            <img src="https://a0.muscache.com/im/pictures/user/a13f4039-6f7d-414a-8e11-7778f733fdd7.jpg?im_w=240"/>
+                            </div>
+                        <div className="reviewer_name">Andrew</div>
+                    </div>
+                    <div className="review_writeup">
+                    <p>Location is perfect for a beach get away with amazing, friendly staff to make you feel right at home! Always had things to do everyday and made it natural in making new friends! Definitely another stay for me in the future!</p>
+                    </div>
+                </div>
             </div>
             </div>
             <div className="hotel_right">
             <p>we will have the hovering card here</p>
-            <div className="hotel-reviews">
-                
-            </div>
+            
             </div>
         </div>
     )
