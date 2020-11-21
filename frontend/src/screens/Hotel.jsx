@@ -55,7 +55,8 @@ function Hotel() {
             </div>
             <div className="hotel-reviews">
                 <div className="review_rating">
-                <StarIcon style={{fill: "FF9529"}}/><p className="rating_number">4.5(19)</p>
+                <StarIcon style={{fontSize:30, fill: "FF9529"}}/>
+                <p className="rating_number">4.5(19)</p>
                 </div>
                 <div className="review">
                     <div className="reviewer_info">

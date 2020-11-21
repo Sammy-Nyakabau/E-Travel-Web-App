@@ -110,15 +110,29 @@
     margin-bottom: 60px;
 
 }
+.review_rating{
+    display: flex;
+    margin-bottom: 30px;
+    
+}
+.review_rating>img{
+    width: 20px;
+}
+.rating_number{
+    font-size: 1.5em !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    padding-left: 10px;
+}
 .review{
     margin-top:10px;
     border-radius: 10px;
     padding:10px;
     overflow: hidden;
-    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.8);
     transition: transform 100ms ease-in;
     cursor: pointer;
     align-items: center;
+
 }
 .reviewer_info{
     display:flex;
