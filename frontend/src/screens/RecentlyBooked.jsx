@@ -40,23 +40,12 @@ render() {
             Shared room in bed and breakfast hosted by Beach Bungalow
             </h2>
             <p className="hotel_features">1 guest · 1 bedroom · 1 bed · 2 shared bathrooms</p>
-            <p className="price">$50/night</p>
-            <p className="price">$250/week</p>
-            <p className="price">$800/month</p>
             </div>
             </div>
             </div>
-            <div className="hotel_location_google">
-                <p>Location</p>
-                <div className="hotel_location_image">
-                    <img src="https://developers.google.com/location-context/images/geofencing_landing.png"/>
-                </div>
-            </div>
+           
             <div className="hotel-reviews">
-                <div className="review_rating">
-                <StarIcon style={{fontSize:30, fill: "FF9529"}}/>
-                <p className="rating_number">4.5 (10 reviews)</p>
-                </div>
+                
                 <div className="write_review">
                     <Semantic_textarea/>
                 </div>
