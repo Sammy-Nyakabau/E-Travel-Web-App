@@ -24,7 +24,7 @@ function Header_solid() {
         <SearchIcon />
       </div> */}
       <div className="header_right">
-       <Link to="/SearchPage" style={{ color: 'inherit', textDecoration:"inherit"}}>
+       <Link to="/ListingsPage" style={{ color: 'inherit', textDecoration:"inherit"}}>
         <p>Our Listings</p>
         </Link>
         <Link to="/Hotel" style={{ color: 'inherit', textDecoration:"inherit"}}>

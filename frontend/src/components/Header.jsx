@@ -1,5 +1,5 @@
+/* eslint-disable */
 import React, { useState } from "react";
-// import SearchIcon from "@material-ui/icons/Search";
 import LanguageIcon from "@material-ui/icons/Language";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Avatar } from "@material-ui/core";
@@ -34,7 +34,7 @@ function Header() {
         <SearchIcon />
       </div> */}
       <div className="header_right">
-       <Link to="/SearchPage" style={{ color: 'inherit', textDecoration:"inherit"}}>
+       <Link to="/ListingsPage" style={{ color: 'inherit', textDecoration:"inherit"}}>
         <p>Our Listings</p>
         </Link>
         <Link to="/Hotel" style={{ color: 'inherit', textDecoration:"inherit"}}>

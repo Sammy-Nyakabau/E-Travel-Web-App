@@ -5,33 +5,32 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./screens/Home";
 import Profile from "./screens/Profile";
 import Hotel from "./screens/Hotel";
-import Header from "./components/Header"
-import Header_solid from "./components/Header_solid"
-import Footer from "./components/Footer"
-import SearchPage from "./screens/SearchPage"
+import Header from "./components/Header";
+import Header_solid from "./components/Header_solid";
+import Footer from "./components/Footer";
+import ListingsPage from "./screens/ListingsPage";
 
 function App() {
   return (
     <Router>
       <div className="app">
         <Switch>
-          <Route path="/SearchPage">
+          <Route path="/ListingsPage">
             <Header />
-            <SearchPage />
+            <ListingsPage />
             <Footer />
-
           </Route>
 
           <Route path="/Profile">
             <Header_solid />
-            <Profile/>
-            <Footer/>
+            <Profile />
+            <Footer />
           </Route>
 
           <Route path="/Hotel">
             <Header_solid />
-            <Hotel/>
-            <Footer/>
+            <Hotel />
+            <Footer />
           </Route>
 
           <Route path="/">
@@ -45,4 +44,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

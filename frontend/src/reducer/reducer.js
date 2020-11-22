@@ -3,6 +3,7 @@ export const initialState = {
   listings: [],
   wishlist: [],
   user: null,
+  search: false,
   item: {},
 };
 
@@ -22,6 +23,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         listings: [...action.items],
+      };
+
+    case "SET_SEARCH":
+      return {
+        ...state,
+        search: action.search,
       };
 
     case "SET_WISHLIST":
