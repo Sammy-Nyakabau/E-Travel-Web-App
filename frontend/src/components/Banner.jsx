@@ -59,7 +59,7 @@ class Banner extends Component {
           </div>
         </div>
         </div>
-        <h1 className="caption">live your dreams</h1>
+        <h1 className="caption">What's your next destination</h1>
       </div>
     );
   }
