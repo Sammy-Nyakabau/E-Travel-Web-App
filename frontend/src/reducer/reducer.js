@@ -1,6 +1,7 @@
 /* eslint-disable */
 export const initialState = {
   listings: [],
+  allListings: [],
   wishlist: [],
   user: null,
   search: false,
@@ -23,6 +24,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         listings: [...action.items],
+      };
+    
+      case "SET_ALL_LISTINGS":
+      return {
+        ...state,
+        allListings: [...action.items],
       };
 
     case "SET_SEARCH":
