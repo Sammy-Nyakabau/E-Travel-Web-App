@@ -48,7 +48,7 @@ render() {
             </div>
             </div>
             </div>
-            <div className="hotel_writeup">
+            {/* <div className="hotel_writeup">
             Perfect for groups looking to explore the San Diego beach area!<br/>
 
             Come and enjoy a Bed in a Mixed Dorm Room at the Beach Bungalow Surf Hostel in Pacific Beach, in San Diego.<br/>
@@ -62,7 +62,7 @@ render() {
             The space:<br/>
             We are a 80 bed hostel located beach front.<br/>
             It is not possible to rent the whole house, only a whole room. The common areas are shared with everyone in the house.
-            </div>
+            </div> */}
             <div className="hotel_location_google">
                 <p>Location</p>
                 <div className="hotel_location_image">

@@ -244,6 +244,7 @@
       justify-content: space-between;
       margin-bottom: 10px;
       padding-left:10px;
+      
   }
   .hotel_card{
 
@@ -257,6 +258,7 @@
     font-weight: 60  ;
     font-size: 18px  ;
     line-height: 20px  ;
+
   }
   .hotel_rating_float{
       margin-bottom: 0;
