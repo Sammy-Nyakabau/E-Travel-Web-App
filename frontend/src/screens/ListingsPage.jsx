@@ -5,6 +5,7 @@ import SearchPage_banner from "../components/SearchPage_banner";
 import { useStateValue } from "../reducer/StateProvider";
 import { Button } from "@material-ui/core";
 import SearchResult from "../components/SearchResult";
+import Pagination from '@material-ui/lab/Pagination';
 
 function ListingsPage() {
   const [{ listings, search }] = useStateValue();
@@ -16,7 +17,6 @@ function ListingsPage() {
         {search && 
         <p>62 stays · 26 august to 30 august · 2 guest</p>
         }
-        <Button variant="outlined">Cancellation Flexibility</Button>
         <Button variant="outlined">Type of place</Button>
         <Button variant="outlined">Price</Button>
         <Button variant="outlined">Rooms and beds</Button>
@@ -35,6 +35,10 @@ function ListingsPage() {
           total="$117 total"
         />
       ))}
+        <div className="listings_pagination">
+          <Pagination count={10} />
+        </div>
+
     </div>
   );
 }
