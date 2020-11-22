@@ -11,19 +11,18 @@ import "../styles/Header.css";
 
 function Header() {
   const [header, setheader] = useState(false);
-  const [{allListings}, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   const resetListings = () => {
     dispatch({
-      type: "SET_LISTINGS",
-      items: allListings,
+      type: "SET_PROPERTY_TYPE",
+      propertyType: null,
     });
-    
+
     dispatch({
       type: "SET_SEARCH",
       search: false,
     });
-
   };
 
   const changeBackground = () => {
