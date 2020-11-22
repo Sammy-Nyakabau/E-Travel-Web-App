@@ -30,6 +30,7 @@
     .card__info > h2 {
       font-size: 18px;
       font-weight: 600;
+      color: black;
     }
     
     .card__info > h4 {

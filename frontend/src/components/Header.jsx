@@ -6,28 +6,17 @@ import { Link } from "react-router-dom";
 
 import Dropdown_options from "./Dropdown_options";
 import { useStateValue } from "../reducer/StateProvider";
-import { getListings } from "../services/listingsService";
 
 import "../styles/Header.css";
 
 function Header() {
   const [header, setheader] = useState(false);
-  const [listings, setListings] = useState([]);
-  const [{}, dispatch] = useStateValue();
-
-  useEffect(() => {
-    const fetchListings = async () => {
-      const { data: result } = await getListings();
-      setListings(result);
-    };
-
-    fetchListings();
-  }, [listings]);
+  const [{allListings}, dispatch] = useStateValue();
 
   const resetListings = () => {
     dispatch({
       type: "SET_LISTINGS",
-      items: listings,
+      items: allListings,
     });
     
     dispatch({
