@@ -72,7 +72,7 @@ function Home() {
           <Card
             src="https://diy.sndimg.com/content/dam/images/diy/fullset/2014/3/5/0/RX-Oak-Alley-Plantation-Vacherie-Louisiana_h.jpg.rend.hgtvcom.406.305.suffix/1420866006581.jpeg"
             title="Vacation Home"
-            onClick={() => filterListings("Vacation Home")}
+            onClick={() => filterListings("Vacation home")}
           />
         </Link>
 
@@ -121,7 +121,7 @@ function Home() {
           <Card
             src="https://imgs.6sqft.com/wp-content/uploads/2015/10/20051243/Charlotte-Valley-Farx-ext3.jpg"
             title="Farm Stay"
-            onClick={() => filterListings("Farm Stay")}
+            onClick={() => filterListings("Farm stay")}
           />
         </Link>
 
@@ -154,7 +154,7 @@ function Home() {
           <Card
             src="https://cdn.thespaces.com/wp-content/uploads/2019/01/Squamish-tiny-home-for-rent-airbnb.jpg"
             title="Tiny house"
-            onClick={() => filterListings("Tiny House")}
+            onClick={() => filterListings("Tiny house")}
           />
         </Link>
 
@@ -171,7 +171,7 @@ function Home() {
           <Card
             src="https://www.central-london-apartments.com/images/index/slide01.jpg"
             title="Serviced Apartment"
-            onClick={() => filterListings("Serviced Apartment")}
+            onClick={() => filterListings("Serviced apartment")}
           />
         </Link>
 
@@ -179,7 +179,7 @@ function Home() {
           <Card
             src="https://cf.bstatic.com/images/hotel/max1024x768/215/215959273.jpg"
             title="Guest Suite"
-            onClick={() => filterListings("Guest Suite")}
+            onClick={() => filterListings("Guest suite")}
           />
         </Link>
 
