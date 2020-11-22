@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "react-dates/initialize";
+import Dropdown_search from "./Dropdown_search";
 import {
   DateRangePicker,
   // SingleDatePicker,
@@ -24,8 +25,8 @@ class Banner extends Component {
         <div className="selector_outer">
         <div className="selector">
           <div className="location">
-            <p>Location</p>
-            <input type="text" placeholder="Anywhere" />
+            {/* <p>Location</p> */}
+            <Dropdown_search/>
           </div>
           <div className="check_tab">
           <DateRangePicker
