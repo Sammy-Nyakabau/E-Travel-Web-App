@@ -1,0 +1,6 @@
+.dropdown.ui.dropdown{
+    -webkit-transition:none!important;
+   transition: none;
+   /* min-width: 150px!important; */
+
+}
