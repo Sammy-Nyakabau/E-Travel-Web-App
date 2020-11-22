@@ -51,4 +51,6 @@
     border: none;
     border-bottom: 0.5px solid #EBEBEB;
     background: transparent;
+    outline: none;
+
   }
