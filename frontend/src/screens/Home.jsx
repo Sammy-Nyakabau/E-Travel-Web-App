@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-// import { Link } from "react-router-dom";
 import "../styles/Home.css";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
@@ -29,6 +29,17 @@ function Home() {
     });
   }, [dispatch, listings]);
 
+  const filterListings = (propertyType) => {
+    const filteredListings = listings.filter(
+      (listing) => listing.property_type === propertyType
+    );
+
+    dispatch({
+      type: "SET_LISTINGS",
+      items: filteredListings,
+    });
+  };
+
   return (
     <div className="home">
       <Banner listings={listings} />
@@ -51,15 +62,17 @@ function Home() {
           </p>
         </div>
       </div>
-      {/* <div className="filter_section">
-        <h1>Travel Inspiration</h1>
-        <Filter1 />
-      </div> */}
+      
+
       <div className="home__section">
-        <Card
-          src="https://diy.sndimg.com/content/dam/images/diy/fullset/2014/3/5/0/RX-Oak-Alley-Plantation-Vacherie-Louisiana_h.jpg.rend.hgtvcom.406.305.suffix/1420866006581.jpeg"
-          title="Vacation Home"
-        />
+        <Link to="/ListingsPage">
+          <Card
+            src="https://diy.sndimg.com/content/dam/images/diy/fullset/2014/3/5/0/RX-Oak-Alley-Plantation-Vacherie-Louisiana_h.jpg.rend.hgtvcom.406.305.suffix/1420866006581.jpeg"
+            title="Vacation Home"
+            onClick={() => filterListings("House")}
+          />
+        </Link>
+
         <Card
           src="https://i.pinimg.com/originals/26/9a/1c/269a1c4a9afc4bcd6521cc5a66d96611.jpg"
           title="Apartments"

@@ -1,18 +1,41 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LanguageIcon from "@material-ui/icons/Language";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import Dropdown_options from "./Dropdown_options"
 
-
+import Dropdown_options from "./Dropdown_options";
+import { useStateValue } from "../reducer/StateProvider";
+import { getListings } from "../services/listingsService";
 
 import "../styles/Header.css";
 
 function Header() {
   const [header, setheader] = useState(false);
+  const [listings, setListings] = useState([]);
+  const [{}, dispatch] = useStateValue();
 
+  useEffect(() => {
+    const fetchListings = async () => {
+      const { data: result } = await getListings();
+      setListings(result);
+    };
+
+    fetchListings();
+  }, [listings]);
+
+  const resetListings = () => {
+    dispatch({
+      type: "SET_LISTINGS",
+      items: listings,
+    });
+    
+    dispatch({
+      type: "SET_SEARCH",
+      search: false,
+    });
+
+  };
 
   const changeBackground = () => {
     console.log(window.ScrollY);
@@ -25,25 +48,26 @@ function Header() {
   window.addEventListener("scroll", changeBackground);
   return (
     <div className={header ? "header active" : "header"}>
-       <Link to="/" style={{ color: 'inherit', textDecoration:"inherit"}}>
-      <h1 className="header_icon">Atlantis</h1>
-      </Link> 
+      <Link to="/" style={{ color: "inherit", textDecoration: "inherit" }}>
+        <h1 className="header_icon">Atlantis</h1>
+      </Link>
 
-      {/* <div className="header_center">
-        <input type="text" />
-        <SearchIcon />
-      </div> */}
       <div className="header_right">
-       <Link to="/ListingsPage" style={{ color: 'inherit', textDecoration:"inherit"}}>
-        <p>Our Listings</p>
+        <Link
+          to="/ListingsPage"
+          style={{ color: "inherit", textDecoration: "inherit" }}
+        >
+          <p onClick={() => resetListings()}>Our Listings</p>
         </Link>
-        <Link to="/Hotel" style={{ color: 'inherit', textDecoration:"inherit"}}>
-        <LanguageIcon />
+        <Link
+          to="/Hotel"
+          style={{ color: "inherit", textDecoration: "inherit" }}
+        >
+          <LanguageIcon />
         </Link>
         <ExpandMoreIcon />
         {/* <Avatar /> */}
-        <Dropdown_options/>
-       
+        <Dropdown_options />
       </div>
     </div>
   );
