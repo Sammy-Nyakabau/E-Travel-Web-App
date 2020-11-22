@@ -32,7 +32,7 @@ const locationOptions = [
 
 const Dropdown_search = () => (
   <Dropdown style={{ width:"150px" }}
-    placeholder='Select location'
+    placeholder='Location'
     fluid
     selection
     options={locationOptions}

@@ -43,12 +43,12 @@ class Banner extends Component {
           </div>
 
           <div className="people">
-            <p>People</p>
+            {/* <p>People</p> */}
             <input
               type="number"
               id="quantity"
               name="quantity"
-              placeholder="0"
+              placeholder="People"
               min="1" max="3"
             />
             
