@@ -31,7 +31,7 @@ function Home() {
       type: "SET_ALL_LISTINGS",
       items: listings,
     });
-  });
+  }, [listings, dispatch]);
 
   const filterListings = (propertyType) => {
     const filteredListings = listings.filter(
