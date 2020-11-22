@@ -21,3 +21,7 @@
     position: relative;
     top: -27px; 
   }
+  .listings_pagination{
+    display: flex;
+    justify-content: center;
+  }
