@@ -21,29 +21,29 @@
   } 
 
   .personal_infor{
-    margin: 0px !important;
-    overflow-wrap: break-word !important;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-    font-size: 32px !important;
-    font-weight: 800 !important;
-    line-height: 1.125em !important;
-    color: rgb(72, 72, 72) !important;
+    margin: 0px  ;
+    overflow-wrap: break-word  ;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
+    font-size: 32px  ;
+    font-weight: 800  ;
+    line-height: 1.125em  ;
+    color: rgb(72, 72, 72)  ;
     
   }
 .input_section1{
     
     margin-top: 40px;
     margin-bottom: 50px ;
-    overflow-wrap: break-word !important;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    line-height: 1.375em !important;
-    color: rgb(72, 72, 72) !important;
+    overflow-wrap: break-word  ;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
+    font-size: 16px  ;
+    font-weight: 600  ;
+    line-height: 1.375em  ;
+    color: rgb(72, 72, 72)  ;
 }
   .inputbox {
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-    font-size: 16px !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
+    font-size: 16px  ;
     width: 40%;
     padding: 10px 0px;
     margin: 8px 0;

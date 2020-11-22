@@ -20,7 +20,7 @@ render() {
     return (
         <div className="hotel">
             
-                
+            <h1 className="recentlybookedlocations">Recently Booked locations:</h1>
            <RecentlyBooked_card style={{ borderbottom:"none"}}
                 img="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU"
                 location="Private room in center of London"
