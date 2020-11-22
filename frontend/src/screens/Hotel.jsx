@@ -45,6 +45,8 @@ render() {
             </h2>
             <p className="hotel_features">1 guest · 1 bedroom · 1 bed · 2 shared bathrooms</p>
             <p className="price">$50/night</p>
+            <p className="price">$250/week</p>
+            <p className="price">$800/month</p>
             </div>
             </div>
             </div>
@@ -92,12 +94,12 @@ render() {
                 
                     <div className="selector_hotel">
                     <div className="hotel_rating_outer">
-                    <div className="hotel_price_float">
-                        $50/night
+                    {/* <div className="hotel_price_float">
+                        
                     </div>
                     <div className="hotel_rating_float">
                         <StarIcon style={{fill: "FF9529"}}/><p className="rating_number_float">4.5(19)</p>
-                    </div>
+                    </div> */}
                 
                 </div>
                     <div className="check_tab">
@@ -125,6 +127,9 @@ render() {
                         min="1" max="3"
                         />
                         </div>
+                    </div>
+                    <div className="book_price">
+                        <p>Price: $180</p>
                     </div>
                     <div className="book_button">
                         <button className="book">

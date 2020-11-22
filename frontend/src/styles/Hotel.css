@@ -78,8 +78,8 @@
 .price{
     color: rgb(34, 34, 34) ;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
-    
-    font-size: 22px;
+    margin-bottom: 5px;
+    font-size: 18px;
     
 }
 .hotel_writeup{
@@ -171,8 +171,8 @@
 
     
     position: -webkit-sticky;
-  position: sticky;
-  top: 8rem;
+    position: sticky;
+    top: 8rem;
 
     justify-content: space-between;
     display: inline-block;
@@ -194,12 +194,12 @@
   }
 
   .people_hotel{
-      display: flex;
-      align-items: center;
-      text-align: center;
-      padding-left: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-left: 10px;
 
-      font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 16px;
     color:#757575;
 
@@ -250,7 +250,7 @@
   }
   .hotel_price_float{
     padding-right:40px;
-    display: flex;
+    display: inline-block;
     align-items: center;
     color: rgb(34, 34, 34)  ;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
@@ -278,6 +278,13 @@
     line-height: 20px  ;
     padding-left: 5px;
 
+  }
+  .book_price{
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    color:#757575;
+    padding-left: 10px;
+    margin-top: 10px;
   }
 
   /* * {
