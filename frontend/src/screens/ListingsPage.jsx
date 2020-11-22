@@ -1,6 +1,7 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/SearchPage.css";
+import {paginate} from '../utils/paginate'
 import SearchPage_banner from "../components/SearchPage_banner";
 import { useStateValue } from "../reducer/StateProvider";
 import { Button } from "@material-ui/core";
@@ -9,6 +10,13 @@ import Pagination from '@material-ui/lab/Pagination';
 
 function ListingsPage() {
   const [{ listings, search }] = useStateValue();
+  const [displayedListings, setDisplayedListings] = useState(listings)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [pageSize, setPageSize] = useState(20)
+
+  useEffect(() => {
+    let paginatedMovies = paginate(displayedListings)
+  }, []);
 
   return (
     <div className="searchPage">
@@ -22,6 +30,8 @@ function ListingsPage() {
         <Button variant="outlined">Rooms and beds</Button>
         <Button variant="outlined">More filters</Button>
       </div>
+
+
 
       {listings.map((listing) => (
         <SearchResult

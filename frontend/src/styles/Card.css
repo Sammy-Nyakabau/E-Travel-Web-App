@@ -13,7 +13,7 @@
   }
   
   .card > img {
-    object-fit: fill;
+    object-fit: cover;
     max-width: 400px;
     max-height: 180px;
     width: 100%;

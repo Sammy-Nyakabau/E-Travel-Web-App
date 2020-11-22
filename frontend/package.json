@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.2.0",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "lodash": "^4.17.20",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dates": "^21.8.0",
