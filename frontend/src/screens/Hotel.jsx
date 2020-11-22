@@ -44,7 +44,7 @@ render() {
             Shared room in bed and breakfast hosted by Beach Bungalow
             </h2>
             <p className="hotel_features">1 guest · 1 bedroom · 1 bed · 2 shared bathrooms</p>
-            <p className="price">₹1,970/ night</p>
+            <p className="price">$50/night</p>
             </div>
             </div>
             </div>
