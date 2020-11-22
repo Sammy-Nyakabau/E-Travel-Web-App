@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "react-dates/initialize";
-import "../styles/Hotel.css";
+import "../styles/RecentlyBooked.css";
 import Semantic_textarea from "../components/Semantic_textarea"
 import StarIcon from '@material-ui/icons/Star';
 import "react-dates/lib/css/_datepicker.css";
+import RecentlyBooked_card from "../components/RecentlyBooked_card";
+
 
 class RecentlyBooked extends Component {
     constructor(props) {
@@ -17,33 +19,17 @@ class RecentlyBooked extends Component {
 render() {
     return (
         <div className="hotel">
-            <div className="hotel_left">
-                <div className="hotel_card">
-            <div className="hotel_name">
-            Ocean Front Surf Hostel - Bed in 12 Bed Mixed Room
-            </div>
-            <div className="hotel_details">
-                <div className="hotel_rating">
-                <StarIcon style={{fill: "FF9529"}}/><p className="rating_number">4.5(19)</p>
+            
                 
-                </div>
-                <div className="hotel_location">
-                San Diego, California, United States
-                </div>
-            </div>
-            <div className="hotel_stuff">
-            <div className="hotel_image">
-                <img className="hotel_pic" src="https://a0.muscache.com/im/pictures/793eeffc-2349-452c-b725-0b5312f0812f.jpg?im_w=720"/>
-            </div>
-            <div className="hotel_description">
-            <h2 className="hosting_name">
-            Shared room in bed and breakfast hosted by Beach Bungalow
-            </h2>
-            <p className="hotel_features">1 guest · 1 bedroom · 1 bed · 2 shared bathrooms</p>
-            </div>
-            </div>
-            </div>
-           
+           <RecentlyBooked_card style={{ borderbottom:"none"}}
+                img="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU"
+                location="Private room in center of London"
+                title="Stay at this spacious Edwardian House"
+                description="1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine"
+                star={4.73}
+                price="£30 / night"
+                total="£117 total"
+            />
             <div className="hotel-reviews">
                 
                 <div className="write_review">
@@ -62,10 +48,8 @@ render() {
                 </div>
             </div>
             </div>
-            
            
-           
-        </div>
+        
     )
 }
 }
