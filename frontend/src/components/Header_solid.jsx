@@ -15,12 +15,12 @@ import { useStateValue } from "../reducer/StateProvider";
 import "../styles/Header_solid.css";
 
 function Header_solid() {
-  const [{ allListings }, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   const resetListings = () => {
     dispatch({
-      type: "SET_LISTINGS",
-      items: allListings,
+      type: "SET_PROPERTY_TYPE",
+      propertyType: null,
     });
 
     dispatch({
