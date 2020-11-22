@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { Component } from "react";
+import "react-dates/initialize";
+import {
+  DateRangePicker,
+  // SingleDatePicker,
+  // DayPickerRangeController,
+} from "react-dates";
 import "../styles/Hotel.css";
 import StarIcon from '@material-ui/icons/Star';
+import "react-dates/lib/css/_datepicker.css";
 
-function Hotel() {
+class Hotel extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        startDate: null,
+        endDate: null,
+      };
+    }
+
+render() {
     return (
         <div className="hotel">
             <div className="hotel_left">
@@ -56,7 +72,7 @@ function Hotel() {
             <div className="hotel-reviews">
                 <div className="review_rating">
                 <StarIcon style={{fontSize:30, fill: "FF9529"}}/>
-                <p className="rating_number">4.5(19)</p>
+                <p className="rating_number">4.5 (10 reviews)</p>
                 </div>
                 <div className="review">
                     <div className="reviewer_info">
@@ -72,11 +88,55 @@ function Hotel() {
             </div>
             </div>
             <div className="hotel_right">
-            <p>we will have the hovering card here</p>
-            
-            </div>
+            <div className="hotel_card_float">
+                
+                    <div className="selector_hotel">
+                    <div className="hotel_rating_outer">
+                    <div className="hotel_price_float">
+                        $50/night
+                    </div>
+                    <div className="hotel_rating_float">
+                        <StarIcon style={{fill: "FF9529"}}/><p className="rating_number_float">4.5(19)</p>
+                    </div>
+                
+                </div>
+                    <div className="check_tab">
+                    <DateRangePicker
+                        startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+                        startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+                        endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+                        endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+                        onDatesChange={({ startDate, endDate }) =>
+                            this.setState({ startDate, endDate })
+                        } // PropTypes.func.isRequired,
+                        focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                        onFocusChange={(focusedInput) => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+                        />
+                    </div>
+
+                    <div className="people_hotel">
+                        <div><p>People</p></div>
+                        <div className="people_hotel_input">
+                        <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        placeholder="0"
+                        min="1" max="3"
+                        />
+                        </div>
+                    </div>
+                    <div className="book_button">
+                        <button className="book">
+                        <p>Book</p>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+              </div>
+           
         </div>
     )
 }
-
-export default Hotel
+}
+export default Hotel;
