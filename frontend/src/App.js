@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./screens/Home";
 import Profile from "./screens/Profile";
 import Hotel from "./screens/Hotel";
+import RecentlyBooked from "./screens/RecentlyBooked";
 import Header from "./components/Header";
 import ScrollToTop from "./components/ScrollToTop";
 import Header_solid from "./components/Header_solid";
@@ -26,6 +27,12 @@ function App() {
             <Route path="/Profile">
               <Header_solid />
               <Profile />
+              <Footer />
+            </Route>
+
+            <Route path="/RecentlyBooked">
+              <Header_solid />
+              <RecentlyBooked />
               <Footer />
             </Route>
 

@@ -14,7 +14,7 @@ const Dropdown_options = () => (
    
       <Dropdown.Item description='' text='Account details' as={Link} to='/Profile' />
       <Dropdown.Item description='' text='Wishlist'as={Link} to='/Wishlist' />
-      <Dropdown.Item description='' text='Recently Booked' as={Link} to='/Recently_booked' />
+      <Dropdown.Item description='' text='Recently Booked' as={Link} to='/RecentlyBooked' />
     </Dropdown.Menu>
   </Dropdown>
 )
