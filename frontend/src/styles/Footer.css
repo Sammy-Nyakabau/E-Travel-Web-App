@@ -1,6 +1,7 @@
 .footer_page {
   padding-top: 3rem;
   padding-bottom: 3rem;
+  margin-top: 2rem;
   background-color: #f7f7f7;
   z-index: 200;
   border-top: 1px solid #dddddd;
