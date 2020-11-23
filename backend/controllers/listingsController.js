@@ -18,7 +18,26 @@ const getListingsByType = async (req, res) => {
   res.send(listings);
 };
 
+// @desc    Fetch the total number of listings returned
+// @route   GET /api/listings/count/property_type
+// @access  Public
+const getListingsByTypeCount = async (req, res) => {
+  const { property_type } = req.params;
+  const count = await Listing.where({property_type}).countDocuments();
+  res.json(count);
+};
+
+  // @desc    Fetch the total number of listings returned
+// @route   GET /api/listings/count
+// @access  Public
+const getListingsCount = async (req, res) => {
+  const count = await Listing.find().estimatedDocumentCount();
+  res.json(count);
+};
+
 module.exports = {
   getListings,
-  getListingsByType
+  getListingsByType,
+  getListingsCount,
+  getListingsByTypeCount
 };

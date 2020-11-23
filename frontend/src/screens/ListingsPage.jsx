@@ -3,7 +3,12 @@ import React, { useState, useEffect } from "react";
 import "../styles/SearchPage.css";
 import { paginate } from "../utils/paginate";
 import SearchPage_banner from "../components/SearchPage_banner";
-import { getListings, getListingsByType } from "../services/listingsService";
+import {
+  getListings,
+  getListingsByType,
+  getListingsByTypeCount,
+  getListingsCount,
+} from "../services/listingsService";
 import { useStateValue } from "../reducer/StateProvider";
 import { Button } from "@material-ui/core";
 import SearchResult from "../components/SearchResult";
@@ -12,8 +17,8 @@ import Pagination from "@material-ui/lab/Pagination";
 function ListingsPage() {
   const [{ search, propertyType }] = useStateValue();
   const [listings, setListings] = useState([]);
+  const [count, setCount] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(20);
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -21,7 +26,14 @@ function ListingsPage() {
         ? await getListingsByType(propertyType, currentPage)
         : await getListings(currentPage);
 
+      const { data: total } = propertyType
+        ? await getListingsByTypeCount(propertyType)
+        : await getListingsCount();
+        
+      window.scrollTo(0, 0);
+
       setListings(result);
+      setCount(total);
     };
 
     fetchListings();
@@ -51,7 +63,10 @@ function ListingsPage() {
         />
       ))}
       <div className="listings_pagination">
-        <Pagination count={10} />
+        <Pagination
+          count={Math.floor(count / 20)}
+          onChange={(e, page) => setCurrentPage(page)}
+        />
       </div>
     </div>
   );
