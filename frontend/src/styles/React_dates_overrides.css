@@ -11,6 +11,11 @@
 .DateInput_input{
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
+    
+}
+
+::placeholder {
+  color: #C7C7C7
 }
 .DateRangePickerInput_arrow_svg{
     display:none;

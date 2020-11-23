@@ -1,6 +1,16 @@
 *{
     box-sizing: border-box;
 }
+/* * {
+    outline: solid #f00 1px;
+  } */
+.booked_card{
+    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.5);
+    max-width: 1080px; 
+    border-radius: 10px;
+    margin: 0 auto;
+    padding:20px; 
+}
 .recentlybookedlocations{
     overflow-wrap: break-word  ;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
@@ -8,18 +18,15 @@
     font-weight: 80  ;
     line-height: 1.125em  ;
     color: rgb(72, 72, 72)  ;
-    margin-left:20px;
-    padding: 20px;
+  
 }
-.hotel{
-        
-        margin-left: 100px;
-        display: inline;
+.recentlybooked{
+    max-width: 1080px; 
+    margin: 0 auto; 
 }
-.hotel-reviews{
-    margin: 20px;
-    padding: 20px;
-    width: 70%;
+.booked_hotel-reviews{
+   
+    
 }
 .review_rating{
     display: flex;
@@ -27,21 +34,19 @@
     
 }
 .review_rating>img{
-    width: 20px;
+    
 }
 .rating_number{
-    font-size: 1.5em !important;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 1.5em ;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
     padding-left: 10px;
 }
-.review{
+.booked_review{
     
     margin-top:20px;
     border-radius: 10px;
     padding:10px;
     overflow: hidden;
-    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.3);
-    transition: transform 100ms ease-in;
     cursor: pointer;
     align-items: center;
 
@@ -72,92 +77,9 @@
     margin-top:10px;
 }
 /* This is the the search hover on the right hand side */
-.hotel_right{
-    display: flex;
-    justify-content: space-between;
-    margin-left: 40px;
-}
 
-.selector_hotel {
-    border-radius: 10px;
-    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.5);
 
-    
-    position: -webkit-sticky;
-    position: sticky;
-    top: 8rem;
-
-    justify-content: space-between;
-    display: inline-block;
-    align-items: center;
-    background-color: white;
-    max-width: 350px;
-    padding: 20px;
-
-   
-
-  }
-  .caption {
-    position: relative;
-    top: 8vw;
-    color: white;
-    font-family: "Lobster", cursive;
-    font-size: 40px;
-    text-align: center;
-  }
-
-  .people_hotel{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    padding-left: 10px;
-
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    color:#757575;
-
-  }
-  .people_hotel_input > input {
-    border: none;
-    width: 200px;
-    outline-width: 0px;
-    background: transparent;
-    font-size: 16px;
-    padding-left:20px;
-  }
-  .book_button{
-      display: flex;
-      justify-content: center;
-  }
-  .book_button button {
-    margin-top:20px;
-    background-color: transparent;
-    display: inline-block;
-    font-size: 18px;
-    color: white;
-    border: 1px solid black;
-    background-color: rgb(5, 1, 2);
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 600px;
-    font-family: "Montserrat", sans-serif;
-    cursor: pointer;
-    transition: background-color ease 400ms;
-  }
-  .book_button button:hover {
-    color: white;
-    background: rgb(56, 31, 80);
-  }
-
-  .hotel_rating_outer{
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      padding-left:10px;
-      
-  }
+ 
   .hotel_card{
 
   }
@@ -172,33 +94,7 @@
     line-height: 20px  ;
 
   }
-  .hotel_rating_float{
-      margin-bottom: 0;
-    padding-right:40px;
-    display: flex;
-    align-items: center;
-    color: rgb(34, 34, 34)  ;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
-    font-weight: 60  ;
-    font-size: 18px  ;
-    line-height: 20px  ;
-  }
-  .rating_number_float{
-    color: rgb(34, 34, 34)  ;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
-    font-weight: 60  ;
-    font-size: 18px  ;
-    line-height: 20px  ;
-    padding-left: 5px;
 
-  }
-  .book_price{
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    color:#757575;
-    padding-left: 10px;
-    margin-top: 10px;
-  }
 
   /* * {
     outline: solid #f00 1px;
