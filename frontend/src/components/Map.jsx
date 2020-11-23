@@ -16,7 +16,7 @@ const Map = ({ center }) => {
         width: "45vw",
         margin: "20px",
       }}
-      zoom={10}
+      zoom={16}
       center={center}
       onLoad={(map) => setMyMap(map)}
     >

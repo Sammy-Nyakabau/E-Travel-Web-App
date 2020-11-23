@@ -8,6 +8,7 @@ import {
 import "../styles/Hotel.css";
 import { useStateValue } from "../reducer/StateProvider";
 import Map from "../components/Map";
+import Review from "../components/Review";
 import StarIcon from "@material-ui/icons/Star";
 import "react-dates/lib/css/_datepicker.css";
 
@@ -71,20 +72,9 @@ const Hotel = () => {
               {item.start_rating}({item.reviews_count})
             </p>
           </div>
-          <div className="review">
-            <div className="reviewer_info">
-              <div className="reviewer_photo"></div>
-              <div className="reviewer_name">Andrew</div>
-            </div>
-            <div className="review_writeup">
-              <p>
-                Location is perfect for a beach get away with amazing, friendly
-                staff to make you feel right at home! Always had things to do
-                everyday and made it natural in making new friends! Definitely
-                another stay for me in the future!
-              </p>
-            </div>
-          </div>
+          {item.reviews && item.reviews.map((review) => (
+            <Review review={review} />
+          ))}
         </div>
       </div>
       <div className="hotel_right">
