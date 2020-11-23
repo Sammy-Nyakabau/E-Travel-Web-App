@@ -105,9 +105,9 @@ const Hotel = () => {
                   type="number"
                   id="quantity"
                   name="quantity"
-                  placeholder="0"
+                  placeholder="1"
                   min="1"
-                  max="3"
+                  max={item.capacity_of_people}
                 />
               </div>
             </div>

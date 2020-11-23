@@ -6,7 +6,7 @@ const Map = ({ center }) => {
   const [myMap, setMyMap] = useState(null);
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyDjQL5K3KNqTlkqM0_uRgdNnc5O6uJ_9do",
+    googleMapsApiKey: "AIzaSyDjQL5K3KNqTlkqM0_uRgdNnc5O6uJ_9do", //this should not be publicly visible but oh well
   });
 
   const renderMap = () => (
@@ -14,7 +14,6 @@ const Map = ({ center }) => {
       mapContainerStyle={{
         height: "50vh",
         width: "45vw",
-        margin: "20px",
       }}
       zoom={16}
       center={center}
