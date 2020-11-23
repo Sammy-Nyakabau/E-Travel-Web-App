@@ -2,11 +2,10 @@
 .searchResult1 {
     display: flex;
     position: relative;
-    margin: 20px;
-    padding: 20px;
-    padding-bottom: 0px;
+   
+    padding-bottom: 10px;
     cursor: pointer;
-    width:70%;
+    width:100%;
   }
 
 .searchResult1:hover {

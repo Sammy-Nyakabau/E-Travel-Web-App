@@ -1,11 +1,9 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 import { useStateValue } from "../reducer/StateProvider";
-
 import "../styles/Home.css";
 import "../styles/React_dates_overrides.css";
 
