@@ -5,7 +5,6 @@
     margin: 20px;
     padding: 20px;
     border-bottom: 1px solid lightgray;
-    cursor: pointer;
   }
 
 .searchResult:hover {
@@ -17,6 +16,7 @@
     width: 350px;
     border-radius: 10px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .searchResult__info {
@@ -24,12 +24,14 @@
     flex-direction: column;
     justify-content: space-between;
     padding-left: 20px;
+    cursor: pointer;
 }
 
 .searchResult__heart {
     position: absolute;
     top: 20px;
     right: 40px;
+    cursor: pointer;
 }
 
 .searchResult__infoTop {
@@ -50,6 +52,8 @@
 .searchResult__infoBottom {
     display: flex;
     justify-content: space-between;
+    cursor: default;
+
 }
 
 

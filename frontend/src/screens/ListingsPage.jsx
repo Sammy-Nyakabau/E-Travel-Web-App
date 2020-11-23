@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState, useEffect } from "react";
 import "../styles/SearchPage.css";
-import { paginate } from "../utils/paginate";
+import { useHistory } from "react-router-dom";
 import SearchPage_banner from "../components/SearchPage_banner";
 import {
   getListings,
@@ -15,7 +15,8 @@ import SearchResult from "../components/SearchResult";
 import Pagination from "@material-ui/lab/Pagination";
 
 function ListingsPage() {
-  const [{ search, propertyType }] = useStateValue();
+  const history = useHistory();
+  const [{ search, propertyType }, dispatch] = useStateValue();
   const [listings, setListings] = useState([]);
   const [count, setCount] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,6 +40,14 @@ function ListingsPage() {
     fetchListings();
   }, [currentPage, propertyType]);
 
+  const handleSelected = (listing) => {
+    dispatch({
+      type: "SET_ITEM",
+      item: listing,
+    });
+    history.push("/Hotel");
+  }
+
   return (
     <div className="searchPage">
       <SearchPage_banner />
@@ -60,6 +69,7 @@ function ListingsPage() {
           property_type={listing.property_type}
           price={`$${listing.night_price}/ night`}
           total="$117 total"
+          onClick={() => handleSelected(listing)}
         />
       ))}
       <div className="listings_pagination">

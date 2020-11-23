@@ -13,14 +13,15 @@ function SearchResult({
     star,
     price,
     total,
-    property_type
+    property_type,
+    onClick
 }) {
     return (
         <div className='searchResult'>
             <img src={img} alt="" />
             <FavoriteBorderIcon className="searchResult__heart" />
 
-            <div className='searchResult__info'>
+            <div className='searchResult__info' onClick={onClick}>
                 <div className="searchResult__infoTop">
                     <p>{location}</p>
                     <h3>{title}</h3>
