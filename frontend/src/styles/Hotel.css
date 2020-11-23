@@ -79,8 +79,14 @@
     color: rgb(34, 34, 34) ;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
     margin-bottom: 5px;
-    font-size: 18px;
+    font-size: 14px;
     
+    
+}
+.price_options{
+    display: flex;
+    justify-content: space-between;
+    width:80%;
 }
 .hotel_writeup{
     margin-top: 20px;
