@@ -5,6 +5,7 @@ import {
   // SingleDatePicker,
   // DayPickerRangeController,
 } from "react-dates";
+import moment from 'moment'
 import "../styles/Hotel.css";
 import { useStateValue } from "../reducer/StateProvider";
 import Map from "../components/Map";
@@ -17,6 +18,10 @@ const Hotel = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
+
+  const handleBooking = () => {
+
+  }
 
   return (
     <div className="hotel">
@@ -115,7 +120,7 @@ const Hotel = () => {
               <p>Price: $180</p>
             </div>
             <div className="book_button">
-              <button className="book">
+              <button className="book" onClick={handleBooking}>
                 <p>Book</p>
               </button>
             </div>

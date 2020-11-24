@@ -4,12 +4,12 @@ const { Booking } = require("../models/bookingsModel");
 // @route   POST /api/bookings
 // @access  Public
 const createBooking = async (req, res) => {
-  const { listing, startDate, endDate } = req.body;
+  const { listing, booking } = req.body;
 
-  const booking = new Booking({listing, booking: { startDate, endDate }});
-  await booking.save();
+  const newBooking = new Booking({ listing, booking });
+  await newBooking.save();
 
-  res.send(booking)
+  res.send(newBooking);
 };
 
 module.exports = {
