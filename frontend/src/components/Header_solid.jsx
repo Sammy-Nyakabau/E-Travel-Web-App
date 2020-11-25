@@ -8,6 +8,7 @@ import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import { Dropdown } from "semantic-ui-react";
+import Header_login from "./Header_login"
 import Dropdown_options from "./Dropdown_options";
 
 import { useStateValue } from "../reducer/StateProvider";
@@ -48,9 +49,9 @@ function Header_solid() {
         >
           <LanguageIcon />
         </Link>
-        <ExpandMoreIcon />
         <Dropdown_options />
         {/* <Avatar /> */}
+        <Header_login/>
       </div>
     </div>
   );

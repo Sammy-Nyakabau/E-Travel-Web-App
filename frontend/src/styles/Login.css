@@ -1,0 +1,105 @@
+/* .login {
+    margin-top: 4rem;
+    background-color: white !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+  
+  .login__container {
+    width: 300px;
+    height: fit-content;
+    display: flex;
+    background-color: rgba(0,0,0,.8);
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding: 20px;
+    position: absolute; 
+    top:22em;
+    left: 88%;
+  transform: translate(-50%, -50%);
+   color: white!important;
+  }
+  
+  .login__container > h1 {
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  
+  .login__container > form > h5 {
+    margin-bottom: 5px;
+  }
+  
+  .login__container > form > input {
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: white;
+    width: 98%;
+    border-radius: 10px;
+  }
+  
+  .login__container > p {
+    margin-top: 15px;
+    font-size: 12px;
+  }
+  
+  .login__signInButton {
+    background: #4f8cc2;
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: #132d78;
+    cursor: pointer;
+  }
+  
+  .login__registerButton {
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid;
+    margin-top: 10px;
+    cursor: pointer;
+    border-color: darkgray;
+  }
+  
+  .login__FacebookButton { 
+    width: 165px;
+    height:35px;  
+    border-radius: 4px;
+    background: #3b5998;
+    color:white;
+    border:0px transparent;  
+    text-align: center;
+    margin:5px;
+    display: inline-block;
+  }
+  .login__GoogleButton{ 
+    margin:5px;
+    width: 165px;
+    height:35px;
+    border-radius: 4px;
+    background: #db3236;
+    color:white;
+    border:0px transparent;
+    text-align: center;
+  }
+  .FacebookButton:hover {
+    background: #3b5998;
+    opacity: 0.6;
+  }
+  .GoogleButton:hover {
+    background: #db3236;
+    opacity: 0.6;
+  }
+  .socials{
+      margin: 10px;
+      display: flex;
+      justify-content: space-evenly;
+  }
+  .login_conditions{
+      text-align: center;
+  }
