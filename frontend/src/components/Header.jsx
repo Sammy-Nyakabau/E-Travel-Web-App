@@ -47,12 +47,12 @@ function Header() {
         >
           <p onClick={() => resetListings()}>Our Listings</p>
         </Link>
-        <Link
+        {/* <Link
           to="/Hotel"
           style={{ color: "inherit", textDecoration: "inherit" }}
         >
           <LanguageIcon />
-        </Link>
+        </Link> */}
         {/* <ExpandMoreIcon /> */}
         {/* <Avatar /> */}
         <Dropdown_options />

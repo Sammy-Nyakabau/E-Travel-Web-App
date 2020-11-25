@@ -17,7 +17,7 @@
     border: 1px solid lightgray;
     padding: 20px;
     position: absolute; 
-    top:22em;
+    top:24em;
     left: 88%;
   transform: translate(-50%, -50%);
    color: black!important;
@@ -51,6 +51,7 @@
   
   .login__signInButton {
     background: #D90964;
+    color:white;
     border-radius: 12px;
     width: 100%;
     height: 30px;

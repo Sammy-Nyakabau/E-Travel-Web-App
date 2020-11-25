@@ -43,12 +43,12 @@ function Header_solid() {
         >
           <p onClick={() => resetListings()}>Our Listings</p>
         </Link>
-        <Link
+        {/* <Link
           to="/Hotel"
           style={{ color: "inherit", textDecoration: "inherit" }}
         >
           <LanguageIcon />
-        </Link>
+        </Link> */}
         <Dropdown_options />
         {/* <Avatar /> */}
         <Header_login/>
