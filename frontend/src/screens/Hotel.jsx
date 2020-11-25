@@ -5,8 +5,11 @@ import {
   // SingleDatePicker,
   // DayPickerRangeController,
 } from "react-dates";
+import moment from 'moment'
 import "../styles/Hotel.css";
 import { useStateValue } from "../reducer/StateProvider";
+import Map from "../components/Map";
+import Review from "../components/Review";
 import StarIcon from "@material-ui/icons/Star";
 import "react-dates/lib/css/_datepicker.css";
 
@@ -15,6 +18,10 @@ const Hotel = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
+
+  const handleBooking = () => {
+
+  }
 
   return (
     <div className="hotel">
@@ -37,14 +44,18 @@ const Hotel = () => {
             <div className="hotel_description">
               <h2 className="hosting_name">{item.property_type}</h2>
               <p className="hotel_features">
-                {item.capacity_of_people} guest(s) · {item.num_of_rooms}{" "}
-                room(s) · {item.num_of_beds} bed(s) · 
-                {item.num_of_baths} bathroom(s)
+                {item.capacity_of_people} guest(s) · {item.num_of_rooms} room(s)
+                · {item.num_of_beds} bed(s) ·{item.num_of_baths} bathroom(s)
               </p>
               <div className="price_options">
-                <p className="price">$50/night</p>
-                <p className="price">$250/week</p>
-                <p className="price">$800/month</p>
+                <p className="price">${item.night_price}/night</p>
+                <p className="price">
+                  {item.weekly_price === 0 ? "-" : "$" + item.weekly_price}/week
+                </p>
+                <p className="price">
+                  {item.monthly_price === 0 ? "-" : "$" + item.monthly_price}
+                  /month
+                </p>
               </div>
             </div>
           </div>
@@ -52,30 +63,23 @@ const Hotel = () => {
         <div className="hotel_location_google">
           <p>Location</p>
           <div className="hotel_location_image">
-            <img alt="" src="https://developers.google.com/location-context/images/geofencing_landing.png" />
+            {/* <img
+              alt=""
+              src="https://developers.google.com/location-context/images/geofencing_landing.png"
+            /> */}
+            <Map center={{ lat: item.lat, lng: item.lon }} />
           </div>
         </div>
         <div className="hotel-reviews">
           <div className="review_rating">
             <StarIcon style={{ fontSize: 30, fill: "FF9529" }} />
-            <p className="rating_number">4.5 (10 reviews)</p>
+            <p className="rating_number">
+              {item.start_rating}({item.reviews_count})
+            </p>
           </div>
-          <div className="review">
-            <div className="reviewer_info">
-              <div className="reviewer_photo">
-                <img alt="" src="https://a0.muscache.com/im/pictures/user/a13f4039-6f7d-414a-8e11-7778f733fdd7.jpg?im_w=240" />
-              </div>
-              <div className="reviewer_name">Andrew</div>
-            </div>
-            <div className="review_writeup">
-              <p>
-                Location is perfect for a beach get away with amazing, friendly
-                staff to make you feel right at home! Always had things to do
-                everyday and made it natural in making new friends! Definitely
-                another stay for me in the future!
-              </p>
-            </div>
-          </div>
+          {item.reviews && item.reviews.map((review) => (
+            <Review review={review} />
+          ))}
         </div>
       </div>
       <div className="hotel_right">
@@ -106,9 +110,9 @@ const Hotel = () => {
                   type="number"
                   id="quantity"
                   name="quantity"
-                  placeholder="0"
+                  placeholder="1"
                   min="1"
-                  max="3"
+                  max={item.capacity_of_people}
                 />
               </div>
             </div>
@@ -116,7 +120,7 @@ const Hotel = () => {
               <p>Price: $180</p>
             </div>
             <div className="book_button">
-              <button className="book">
+              <button className="book" onClick={handleBooking}>
                 <p>Book</p>
               </button>
             </div>
