@@ -8,9 +8,9 @@
     width:100%;
   }
 
-.searchResult1:hover {
+/* .searchResult1:hover {
     opacity: 0.8;
-}
+} */
 
 .searchResult1 > img {
     height: 200px;
@@ -71,4 +71,25 @@
     position: absolute;
     bottom: 20px;
     right: 30px;
+}
+.submit-review{
+    padding:5px;
+    width:130px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    transition: background-color ease 400ms;
+
+}
+.submit-review:hover{
+    padding:5px;
+    width:130px;
+    border-radius: 20px;
+    border: 5px;
+    background: #FF385C;
+    color: white;
+}
+.write_review{
+    /* align-content: flex-end; */
+    padding-top: 5px;
 }

@@ -11,7 +11,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Header_solid from "./components/Header_solid";
 import Footer from "./components/Footer";
 import ListingsPage from "./screens/ListingsPage";
-import Login from "./screens/Login";
+import Login from "./components/Login";
 
 function App() {
   return (

@@ -66,6 +66,14 @@ function Login() {
 
   return (
       <div className="login__container">
+        <div className="type_selector">
+          <div className="Guest">
+          <p>Guest</p>
+          </div>
+          <div className="Host">
+        <p>Host</p>
+        </div>
+        </div>
         <h1>Sign-in</h1>
 
         <form>

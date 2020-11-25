@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "react-dates/initialize";
 import "../styles/RecentlyBooked.css";
-import Semantic_textarea from "../components/Semantic_textarea";
 import StarIcon from "@material-ui/icons/Star";
 import "react-dates/lib/css/_datepicker.css";
 import RecentlyBooked_card from "../components/RecentlyBooked_card";
@@ -30,11 +29,10 @@ class RecentlyBooked extends Component {
             price="£30 / night"
             total="£117 total"
           />
+          
           <div className="booked_hotel-reviews">
-            <div className="write_review">
-              <Semantic_textarea />
-            </div>
-            <div className="booked_review">
+            
+            {/* <div className="booked_review">
               <div className="reviewer_info">
                 <div className="reviewer_photo">
                   <img src="https://a0.muscache.com/im/pictures/user/a13f4039-6f7d-414a-8e11-7778f733fdd7.jpg?im_w=240" />
@@ -49,7 +47,7 @@ class RecentlyBooked extends Component {
                   friends! Definitely another stay for me in the future!
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

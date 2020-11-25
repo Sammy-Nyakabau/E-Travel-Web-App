@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Login from "../screens/Login";
+import Login from "./Login";
 
 class Header_login extends Component {
   constructor() {
