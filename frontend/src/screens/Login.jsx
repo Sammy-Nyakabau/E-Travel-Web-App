@@ -8,6 +8,7 @@ import "../styles/Login.css";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
+import Google from "@material-ui/icons/Google";
 
 function Login() {
   const history = useHistory();
@@ -91,17 +92,11 @@ function Login() {
           </button>
         </form>
         <div className="socials">
-          <LinkedInIcon
+          <Google
             type="submit"
             onclick={signIn}
-            classname="login_LinkedInButton"
+            classname="login_Google"
           />
-          <InstagramIcon
-            type="submit"
-            onclick={signIn}
-            classname="login_InstagramButton"
-          />
-
           <FacebookIcon
             type="submit"
             onclick={signIn}
