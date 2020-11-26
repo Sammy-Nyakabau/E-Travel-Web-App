@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "react-dates/initialize";
+import CurrencyFormat from "react-currency-format";
 import {
   DateRangePicker,
   // SingleDatePicker,
   // DayPickerRangeController,
 } from "react-dates";
-import moment from 'moment'
+import moment from "moment";
 import "../styles/Hotel.css";
 import { useStateValue } from "../reducer/StateProvider";
 import Map from "../components/Map";
@@ -16,12 +17,26 @@ import "react-dates/lib/css/_datepicker.css";
 const Hotel = () => {
   const [{ item }] = useStateValue();
   const [startDate, setStartDate] = useState(null);
+  const [price, setPrice] = useState(item.night_price);
   const [endDate, setEndDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
 
-  const handleBooking = () => {
+  // useEffect(() => {
+    
+  // }, []);
 
-  }
+  const handleDateChange = () => {
+    if(!startDate || !endDate){
+      startDate._d = Date.now()
+      endDate._d = new Date().getDate()+1
+    }
+    const start = moment(startDate._d);
+    const end = moment(endDate._d);
+
+    const duration = end.diff(start, "days");
+    const cost = item.night_price * duration;
+    setPrice(cost);
+  };
 
   return (
     <div className="hotel">
@@ -77,9 +92,8 @@ const Hotel = () => {
               {item.start_rating}({item.reviews_count})
             </p>
           </div>
-          {item.reviews && item.reviews.map((review) => (
-            <Review review={review} />
-          ))}
+          {item.reviews &&
+            item.reviews.map((review) => <Review review={review} />)}
         </div>
       </div>
       <div className="hotel_right">
@@ -95,7 +109,10 @@ const Hotel = () => {
                 onDatesChange={({ startDate, endDate }) => {
                   setEndDate(endDate);
                   setStartDate(startDate);
+                  // handleDateChange()
                 }} // PropTypes.func.isRequired,
+                onClose={() => handleDateChange()}
+                // keepOpenOnDateSelect={true}
                 focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                 onFocusChange={(focusedInput) => setFocusedInput(focusedInput)} // PropTypes.func.isRequired,
               />
@@ -117,10 +134,23 @@ const Hotel = () => {
               </div>
             </div>
             <div className="book_price">
-              <p>Price: $180</p>
+              <CurrencyFormat
+                renderText={(value) => (
+                  <>
+                    <p>
+                      Price: <span style={{ color: "black" }}>{value}</span>
+                    </p>
+                  </>
+                )}
+                decimalscale={2}
+                value={price}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix={"$"}
+              />
             </div>
             <div className="book_button">
-              <button className="book" onClick={handleBooking}>
+              <button className="book">
                 <p>Book</p>
               </button>
             </div>
