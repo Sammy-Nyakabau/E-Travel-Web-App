@@ -8,6 +8,7 @@ import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import { Dropdown } from "semantic-ui-react";
+import Header_login from "./Header_login"
 import Dropdown_options from "./Dropdown_options";
 
 import { useStateValue } from "../reducer/StateProvider";
@@ -42,15 +43,15 @@ function Header_solid() {
         >
           <p onClick={() => resetListings()}>Our Listings</p>
         </Link>
-        <Link
+        {/* <Link
           to="/Hotel"
           style={{ color: "inherit", textDecoration: "inherit" }}
         >
           <LanguageIcon />
-        </Link>
-        <ExpandMoreIcon />
+        </Link> */}
         <Dropdown_options />
         {/* <Avatar /> */}
+        <Header_login/>
       </div>
     </div>
   );

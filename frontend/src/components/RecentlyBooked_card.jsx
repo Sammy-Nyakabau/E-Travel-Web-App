@@ -2,6 +2,8 @@ import React from 'react';
 import '../styles/RecentlyBooked_card.css';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarIcon from "@material-ui/icons/Star";
+import Semantic_textarea from "../components/Semantic_textarea";
+
 
 import '../styles/SearchResult.css';
 
@@ -26,6 +28,10 @@ function RecentlyBooked_card({
                     <p>{property_type}</p>
                     <p>{description}</p>
                 </div>
+                <div className="write_review">
+              <Semantic_textarea />
+            </div>
+            <button className="submit-review">Submit review</button>
 
                 
             </div>

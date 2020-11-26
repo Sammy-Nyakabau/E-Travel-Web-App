@@ -42,7 +42,6 @@
     margin-left:60px;
     font-size: 40px;
     font-family: 'Zilla Slab', serif;
-    
 }
 
 .header_right{
@@ -50,6 +49,8 @@
     align-items: center;
     margin-right: 80px;
     justify-content: space-between;
-    width: 25vw;
-
+    width: 18vw;
 }
+/* * {
+    outline: solid #f00 1px;
+  } */
