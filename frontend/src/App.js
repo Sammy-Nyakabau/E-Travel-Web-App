@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./screens/Home";
 import Profile from "./screens/Profile";
 import Hotel from "./screens/Hotel";
+import Wishlist from "./screens/Wishlist";
 import RecentlyBooked from "./screens/RecentlyBooked";
 import Header from "./components/Header";
 import ScrollToTop from "./components/ScrollToTop";
@@ -23,6 +24,11 @@ function App() {
               <Header />
               <ListingsPage />
               <Footer />
+            </Route>
+            <Route path="/Wishlist">
+            <Header_solid/>
+            <Wishlist/>
+            <Footer/>
             </Route>
             <Route path="/Login">
               <Login />
