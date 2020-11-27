@@ -1,27 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "react-dates/initialize";
+import CurrencyFormat from "react-currency-format";
+import {useHistory} from 'react-router-dom';
 import {
   DateRangePicker,
   // SingleDatePicker,
   // DayPickerRangeController,
 } from "react-dates";
-import moment from 'moment'
+import moment from "moment";
 import "../styles/Hotel.css";
 import { useStateValue } from "../reducer/StateProvider";
+import {createBooking} from '../services/bookingService';
 import Map from "../components/Map";
 import Review from "../components/Review";
 import StarIcon from "@material-ui/icons/Star";
 import "react-dates/lib/css/_datepicker.css";
 
 const Hotel = () => {
+  const history = useHistory()
   const [{ item }] = useStateValue();
   const [startDate, setStartDate] = useState(null);
+  const [price, setPrice] = useState(item.night_price);
   const [endDate, setEndDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
 
-  const handleBooking = () => {
+  useEffect(() => {
+    const start = !startDate? moment() : moment(startDate._d);
+    const end = !endDate? moment().add(1,'days') : moment(endDate._d);
 
-  }
+    const duration = end.diff(start, "days");
+    const cost = item.night_price * duration;
+    setPrice(cost);
+  }, [startDate, endDate, item.night_price]);
+
+    const handleBooking = async () => {
+      const booking = {
+        startDate: startDate._d,
+        endDate: endDate._d,
+      }
+      await createBooking(item._id, booking )
+
+      history.push("/")
+    }
+ 
 
   return (
     <div className="hotel">
@@ -63,10 +84,6 @@ const Hotel = () => {
         <div className="hotel_location_google">
           <p>Location</p>
           <div className="hotel_location_image">
-            {/* <img
-              alt=""
-              src="https://developers.google.com/location-context/images/geofencing_landing.png"
-            /> */}
             <Map center={{ lat: item.lat, lng: item.lon }} />
           </div>
         </div>
@@ -77,9 +94,8 @@ const Hotel = () => {
               {item.start_rating}({item.reviews_count})
             </p>
           </div>
-          {item.reviews && item.reviews.map((review) => (
-            <Review review={review} />
-          ))}
+          {item.reviews &&
+            item.reviews.map((review) => <Review review={review} />)}
         </div>
       </div>
       <div className="hotel_right">
@@ -98,6 +114,7 @@ const Hotel = () => {
                 }} // PropTypes.func.isRequired,
                 focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                 onFocusChange={(focusedInput) => setFocusedInput(focusedInput)} // PropTypes.func.isRequired,
+              
               />
             </div>
 
@@ -117,7 +134,20 @@ const Hotel = () => {
               </div>
             </div>
             <div className="book_price">
-              <p>Price: $180</p>
+              <CurrencyFormat
+                renderText={(value) => (
+                  <>
+                    <p>
+                      Price: <span style={{ color: "black" }}>{value}</span>
+                    </p>
+                  </>
+                )}
+                decimalscale={2}
+                value={price}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix={"$"}
+              />
             </div>
             <div className="book_button">
               <button className="book" onClick={handleBooking}>
