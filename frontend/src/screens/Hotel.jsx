@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "react-dates/initialize";
 import CurrencyFormat from "react-currency-format";
-import {useHistory} from 'react-router-dom';
-import {
-  DateRangePicker,
-  // SingleDatePicker,
-  // DayPickerRangeController,
-} from "react-dates";
-import moment from "moment";
+import { useHistory } from "react-router-dom";
+import { DateRangePicker } from "react-dates";
+import Moment from "moment";
+import { extendMoment } from "moment-range";
 import "../styles/Hotel.css";
 import { useStateValue } from "../reducer/StateProvider";
-import {createBooking} from '../services/bookingService';
+import { createBooking, getBookings } from "../services/bookingService";
 import Map from "../components/Map";
 import Review from "../components/Review";
 import StarIcon from "@material-ui/icons/Star";
 import "react-dates/lib/css/_datepicker.css";
 
 const Hotel = () => {
-  const history = useHistory()
+  const moment = extendMoment(Moment);
+  const history = useHistory();
   const [{ item }] = useStateValue();
   const [startDate, setStartDate] = useState(null);
   const [price, setPrice] = useState(item.night_price);
@@ -25,24 +23,41 @@ const Hotel = () => {
   const [focusedInput, setFocusedInput] = useState(null);
 
   useEffect(() => {
-    const start = !startDate? moment() : moment(startDate._d);
-    const end = !endDate? moment().add(1,'days') : moment(endDate._d);
-
+    const start = !startDate ? moment() : moment(startDate._d);
+    const end = !endDate ? moment().add(1, "days") : moment(endDate._d);
     const duration = end.diff(start, "days");
     const cost = item.night_price * duration;
+
     setPrice(cost);
-  }, [startDate, endDate, item.night_price]);
 
-    const handleBooking = async () => {
-      const booking = {
-        startDate: startDate._d,
-        endDate: endDate._d,
-      }
-      await createBooking(item._id, booking )
+  }, [startDate, endDate, item.night_price, moment]);
 
-      history.push("/")
-    }
- 
+  const handleBooking = async () => {
+    const booking = {
+      startDate: startDate._d,
+      endDate: endDate._d,
+    };
+    await createBooking(item._id, booking);
+
+    history.push("/");
+  };
+
+  const handleBookedDates = async (date) => {
+    const { data: res } = await getBookings(item._id);
+    const bookings = [];
+
+    res.forEach((element) => {
+      bookings.push(element.booking);
+    });
+    let bookedRanges = [];
+    let blocked = false;
+    bookings.forEach((booking) => {
+      bookedRanges.push(moment.range(booking.startDate, booking.endDate));
+    });
+    blocked = bookedRanges.find((range) => range.contains(date));
+    console.log(date)
+    // return blocked;
+  };
 
   return (
     <div className="hotel">
@@ -114,7 +129,7 @@ const Hotel = () => {
                 }} // PropTypes.func.isRequired,
                 focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                 onFocusChange={(focusedInput) => setFocusedInput(focusedInput)} // PropTypes.func.isRequired,
-              
+                isDayBlocked={(date) => handleBookedDates(date)}
               />
             </div>
 
@@ -150,7 +165,7 @@ const Hotel = () => {
               />
             </div>
             <div className="book_button">
-              <button className="book" onClick={handleBooking}>
+              <button className="book" onClick={handleBookedDates}>
                 <p>Book</p>
               </button>
             </div>

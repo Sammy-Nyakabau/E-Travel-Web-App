@@ -12,6 +12,18 @@ const createBooking = async (req, res) => {
   res.send(newBooking);
 };
 
+// @desc    Fetch bookings for a particular listings
+// @route   GET /api/bookings/:id
+// @access  Public
+const getBookings = async (req, res) => {
+  const { listing } = req.params;
+
+  const bookings = await Booking.find({ listing }).select("-__v");
+
+  res.send(bookings);
+};
+
 module.exports = {
   createBooking,
+  getBookings,
 };
