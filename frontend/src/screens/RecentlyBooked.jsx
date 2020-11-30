@@ -1,20 +1,13 @@
 import React, { Component } from "react";
 import "react-dates/initialize";
 import "../styles/RecentlyBooked.css";
-import StarIcon from "@material-ui/icons/Star";
 import "react-dates/lib/css/_datepicker.css";
 import RecentlyBooked_card from "../components/RecentlyBooked_card";
 
-class RecentlyBooked extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startDate: null,
-      endDate: null,
-    };
-  }
 
-  render() {
+
+const RecentlyBooked = () => {
+
     return (
       <div className="recentlybooked">
         <h1 className="recentlybookedlocations">Recently Booked locations:</h1>
@@ -31,27 +24,10 @@ class RecentlyBooked extends Component {
           />
           
           <div className="booked_hotel-reviews">
-            
-            {/* <div className="booked_review">
-              <div className="reviewer_info">
-                <div className="reviewer_photo">
-                  <img src="https://a0.muscache.com/im/pictures/user/a13f4039-6f7d-414a-8e11-7778f733fdd7.jpg?im_w=240" />
-                </div>
-                <div className="reviewer_name">Andrew</div>
-              </div>
-              <div className="review_writeup">
-                <p>
-                  Location is perfect for a beach get away with amazing,
-                  friendly staff to make you feel right at home! Always had
-                  things to do everyday and made it natural in making new
-                  friends! Definitely another stay for me in the future!
-                </p>
-              </div>
-            </div> */}
+          
           </div>
         </div>
       </div>
     );
   }
-}
 export default RecentlyBooked;

@@ -1,14 +1,9 @@
 /* eslint-disable */
 import React from "react";
 import "../styles/Header_solid.css";
-// import SearchIcon from "@material-ui/icons/Search";
-import LanguageIcon from "@material-ui/icons/Language";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
-import { Dropdown } from "semantic-ui-react";
-import Header_login from "./Header_login"
+import Header_login from "./Header_login";
 import Dropdown_options from "./Dropdown_options";
 
 import { useStateValue } from "../reducer/StateProvider";
@@ -16,7 +11,7 @@ import { useStateValue } from "../reducer/StateProvider";
 import "../styles/Header_solid.css";
 
 function Header_solid() {
-  const [{}, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
 
   const resetListings = () => {
     dispatch({
@@ -30,6 +25,13 @@ function Header_solid() {
     });
   };
 
+  const logOut = () => {
+    dispatch({
+      type: "SET_USER",
+      user: null,
+    });
+  };
+
   return (
     <div className="header_solid">
       <Link to="/" style={{ color: "inherit", textDecoration: "inherit" }}>
@@ -37,21 +39,21 @@ function Header_solid() {
       </Link>
 
       <div className="header_right">
+        {user ? <Dropdown_options /> : <div></div>}
         <Link
           to="/ListingsPage"
           style={{ color: "inherit", textDecoration: "inherit" }}
         >
           <p onClick={() => resetListings()}>Our Listings</p>
         </Link>
-        {/* <Link
-          to="/Hotel"
-          style={{ color: "inherit", textDecoration: "inherit" }}
-        >
-          <LanguageIcon />
-        </Link> */}
-        <Dropdown_options />
-        {/* <Avatar /> */}
-        <Header_login/>
+
+        {user ? (
+          <Link style={{ color: "inherit", textDecoration: "inherit" }}>
+            <p onClick={() => logOut()}>Logout</p>
+          </Link>
+        ) : (
+          <Header_login />
+        )}
       </div>
     </div>
   );

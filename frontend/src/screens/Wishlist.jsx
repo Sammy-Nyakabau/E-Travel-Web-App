@@ -1,39 +1,45 @@
-import React, { Component } from "react";
+/* eslint-disable */
+import React from "react";
 import "react-dates/initialize";
 import "../styles/RecentlyBooked.css";
-import StarIcon from "@material-ui/icons/Star";
-import "react-dates/lib/css/_datepicker.css";
+import { useHistory } from "react-router-dom";
 import Wishlist_card from "../components/Wishlist_card";
+import { useStateValue } from "../reducer/StateProvider";
 
-class Wishlist extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startDate: null,
-      endDate: null,
-    };
-  }
+const Wishlist = () => {
+  const [{ wishlist }, dispatch] = useStateValue();
+  const history = useHistory();
 
-  render() {
-    return (
-      <div className="recentlybooked">
-        <h1 className="recentlybookedlocations">Wishlist:</h1>
-        <div className="booked_card">
+  const handleSelected = (listing) => {
+    dispatch({
+      type: "SET_ITEM",
+      item: listing,
+    });
+    history.push("/Hotel");
+  };
+
+  return (
+    <div className="recentlybooked">
+      <h1 className="recentlybookedlocations">Wishlist:</h1>
+      <div className="booked_card">
+        {wishlist.map((listing) => (
           <Wishlist_card
-            style={{ borderbottom: "none" }}
-            img="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU"
-            location="Private room in center of London"
-            title="Stay at this spacious Edwardian House"
-            description="1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine"
-            star={4.73}
-            price="£30 / night"
-            total="£117 total"
+            // style={{ borderbottom: "none" }}
+            img={listing.image}
+            location={listing.address}
+            title={listing.name}
+            description={`${listing.capacity_of_people} guest(s) · ${listing.num_of_rooms} room(s) · ${listing.num_of_beds} bed(s) · ${listing.num_of_baths} bathroom(s)`}
+            star={listing.start_rating}
+            property_type={listing.property_type}
+            price={`$${listing.night_price}/ night`}
+            onClick={() => handleSelected(listing)}
+            item={listing}
+            id={listing.id}
           />
-          
-         
-        </div>
+        ))}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
 export default Wishlist;

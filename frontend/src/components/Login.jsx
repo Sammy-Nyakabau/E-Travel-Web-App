@@ -2,11 +2,9 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { login } from "../services/authService";
+import { login, register } from "../services/authService";
 import { useStateValue } from "../reducer/StateProvider";
 import "../styles/Login.css";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import Google from "@material-ui/icons/Google";
 
@@ -21,20 +19,9 @@ function Login() {
 
     try {
       const { data: user } = await login(username, password);
-      console.log(user);
 
       if (user) {
         // the user just logged in / the user was logged in
-        toast.info(`Hello ${user.username}, you are logged in`, {
-          position: "bottom-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-
         dispatch({
           type: "SET_USER",
           user: user,
@@ -50,76 +37,83 @@ function Login() {
       }
     } catch (ex) {
       if (ex.response && ex.response.status >= 400) {
-        toast.error("Invalid Username or Password!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        console.log("error");
+      }
+    }
+  };
+
+  const createAccount = async (e) => {
+    e.preventDefault();
+
+    try {
+      const { data: user } = await register(username, password);
+
+      dispatch({
+        type: "SET_USER",
+        user: user,
+      });
+      history.push("/");
+    } catch (ex) {
+      if (ex.response && ex.response.status >= 400) {
         console.log("error");
       }
     }
   };
 
   return (
-      <div className="login__container">
-        <div className="type_selector">
-          <div className="Guest">
-          <p>Guest</p>
-          </div>
-          <div className="Host">
-        <p>Host</p>
+    <div className="login__container">
+      <div className="type_selector">
+        <div className="Guest">
+          <p style={{ cursor: "pointer" }}>Guest</p>
         </div>
+        <div className="Host">
+          <p style={{ cursor: "pointer" }}>Host</p>
         </div>
-        <h1>Sign-in</h1>
-
-        <form>
-          <h5>Username</h5>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-
-          <h5>Password</h5>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <button
-            type="submit"
-            onClick={signIn}
-            className="login__signInButton"
-          >
-            Sign In
-          </button>
-        </form>
-        <div className="socials">
-          <Google
-            type="submit"
-            onclick={signIn}
-            classname="login_Google"
-          />
-          <FacebookIcon
-            type="submit"
-            onclick={signIn}
-            classname="login_FacebookButton"
-          />
-        </div>
-        <p className="login_conditions">
-          By signing-in you agree to the Atlantis' Conditions of Use & Sale.
-        </p>
-        <Link to="/register">
-          <button className="login__registerButton">
-            Create your Atlantis Account
-          </button>
-        </Link>
       </div>
+      <h1>Sign-in</h1>
+
+      <form>
+        <h5>Username</h5>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
+        <h5>Password</h5>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button type="submit" onClick={signIn} className="login__signInButton">
+          Sign In
+        </button>
+      </form>
+      <div className="socials">
+        <Google
+          type="submit"
+          style={{ cursor: "pointer" }}
+          onclick={signIn}
+          classname="login_Google"
+        />
+        <FacebookIcon
+          type="submit"
+          onclick={signIn}
+          classname="login_FacebookButton"
+          style={{ cursor: "pointer" }}
+        />
+      </div>
+      <p className="login_conditions">
+        By signing-in you agree to the Atlantis' Conditions of Use & Sale.
+      </p>
+      <Link to="/register">
+        <button className="login__registerButton" onClick={createAccount}>
+          Create your Atlantis Account
+        </button>
+      </Link>
+    </div>
   );
 }
 

@@ -8,6 +8,9 @@ require("./config/passport")(app);
 require("./config/routes")(app);
 require("./config/db")();
 
+app.get("/", (req, res) => {
+  res.send("Root")
+})
 
 const server = app.listen(port, () =>
   debug(`App listening at http://localhost:${port}`)

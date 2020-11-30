@@ -13,7 +13,7 @@ const Map = ({ center }) => {
     <GoogleMap
       mapContainerStyle={{
         height: "50vh",
-        width: "45vw",
+        width: "40vw",
       }}
       zoom={16}
       center={center}

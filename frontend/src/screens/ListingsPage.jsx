@@ -70,6 +70,8 @@ function ListingsPage() {
           price={`$${listing.night_price}/ night`}
           total="$117 total"
           onClick={() => handleSelected(listing)}
+          item={listing}
+          id={listing.id}
         />
       ))}
       <div className="listings_pagination">
