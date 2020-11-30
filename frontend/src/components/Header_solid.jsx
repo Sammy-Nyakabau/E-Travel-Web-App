@@ -39,13 +39,13 @@ function Header_solid() {
       </Link>
 
       <div className="header_right">
+        {user ? <Dropdown_options /> : <div></div>}
         <Link
           to="/ListingsPage"
           style={{ color: "inherit", textDecoration: "inherit" }}
         >
           <p onClick={() => resetListings()}>Our Listings</p>
         </Link>
-        {user ? <Dropdown_options /> : <div></div>}
 
         {user ? (
           <Link style={{ color: "inherit", textDecoration: "inherit" }}>
