@@ -8,17 +8,18 @@ class Header_login extends Component {
       showMe: false,
     };
   }
-operation()
-{
+  operation() {
     this.setState({
-        showMe:!this.state.showMe
-    })
-}
+      showMe: !this.state.showMe,
+    });
+  }
   render() {
     return (
       <div>
         {this.state.showMe ? <Login /> : null}
-        <p onClick={() => this.operation()}>Login</p>
+        <p style={{ cursor: "pointer" }} onClick={() => this.operation()}>
+          Login
+        </p>
       </div>
     );
   }

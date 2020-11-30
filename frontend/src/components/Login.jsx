@@ -65,61 +65,53 @@ function Login() {
   };
 
   return (
-      <div className="login__container">
-        <div className="type_selector">
-          <div className="Guest">
-          <p>Guest</p>
-          </div>
-          <div className="Host">
-        <p>Host</p>
+    <div className="login__container">
+      <div className="type_selector">
+        <div className="Guest">
+          <p style={{ cursor: "pointer" }}>Guest</p>
         </div>
+        <div className="Host">
+          <p style={{ cursor: "pointer" }}>Host</p>
         </div>
-        <h1>Sign-in</h1>
-
-        <form>
-          <h5>Username</h5>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-
-          <h5>Password</h5>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <button
-            type="submit"
-            onClick={signIn}
-            className="login__signInButton"
-          >
-            Sign In
-          </button>
-        </form>
-        <div className="socials">
-          <Google
-            type="submit"
-            onclick={signIn}
-            classname="login_Google"
-          />
-          <FacebookIcon
-            type="submit"
-            onclick={signIn}
-            classname="login_FacebookButton"
-          />
-        </div>
-        <p className="login_conditions">
-          By signing-in you agree to the Atlantis' Conditions of Use & Sale.
-        </p>
-        <Link to="/register">
-          <button className="login__registerButton">
-            Create your Atlantis Account
-          </button>
-        </Link>
       </div>
+      <h1>Sign-in</h1>
+
+      <form>
+        <h5>Username</h5>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
+        <h5>Password</h5>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button type="submit" onClick={signIn} className="login__signInButton">
+          Sign In
+        </button>
+      </form>
+      <div className="socials">
+        <Google type="submit" onclick={signIn} classname="login_Google" />
+        <FacebookIcon
+          type="submit"
+          onclick={signIn}
+          classname="login_FacebookButton"
+        />
+      </div>
+      <p className="login_conditions">
+        By signing-in you agree to the Atlantis' Conditions of Use & Sale.
+      </p>
+      <Link to="/register">
+        <button className="login__registerButton">
+          Create your Atlantis Account
+        </button>
+      </Link>
+    </div>
   );
 }
 
