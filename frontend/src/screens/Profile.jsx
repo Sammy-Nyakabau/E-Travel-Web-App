@@ -21,6 +21,7 @@ function Profile() {
             <h3>Address</h3>
             <input className="inputbox" placeholder={"B3/22 Delhi"}/>
             </div>
+            <button className="submit-review">Submit</button>
         </div>
     )
 }
