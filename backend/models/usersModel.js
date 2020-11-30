@@ -10,10 +10,11 @@ const userSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: false,
     minlength: 5,
     maxlength: 255,
     unique: true,
+    default: "",
   },
   password: {
     type: String,
@@ -21,11 +22,20 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 1024,
   },
-  shippingAddress: {
-    address: { type: String, required: false, default: "" },
-    city: { type: String, required: false, default: "" },
-    postalCode: { type: String, required: false, default: "" },
-    country: { type: String, required: false, default: "" },
+  address: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  gender: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  phoneNumber: {
+    type: Number,
+    required: false,
+    default: "",
   },
 });
 
