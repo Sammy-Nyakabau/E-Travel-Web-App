@@ -16,7 +16,7 @@ import "react-dates/lib/css/_datepicker.css";
 const Hotel = () => {
   const moment = extendMoment(Moment);
   const history = useHistory();
-  const [{ item }] = useStateValue();
+  const [{ item, user }] = useStateValue();
   const [startDate, setStartDate] = useState(null);
   const [price, setPrice] = useState(item.night_price);
   const [endDate, setEndDate] = useState(null);
@@ -37,10 +37,15 @@ const Hotel = () => {
       startDate: startDate._d,
       endDate: endDate._d,
     };
-    await createBooking(item._id, booking);
+    await createBooking(user._id, item._id, booking);
 
     history.push("/");
   };
+
+    const handleNotLoggedIn = () => {
+      history.push("/");
+    }
+
 
   const handleBookedDates = async (date) => {
     const { data: res } = await getBookings(item._id);
@@ -129,7 +134,7 @@ const Hotel = () => {
                 }} // PropTypes.func.isRequired,
                 focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                 onFocusChange={(focusedInput) => setFocusedInput(focusedInput)} // PropTypes.func.isRequired,
-                isDayBlocked={(date) => handleBookedDates(date)}
+                // isDayBlocked={(date) => handleBookedDates(date)}
               />
             </div>
 
@@ -165,9 +170,9 @@ const Hotel = () => {
               />
             </div>
             <div className="book_button">
-              <button className="book" onClick={handleBookedDates}>
+              {<button className="book" onClick={user ? handleBooking : handleNotLoggedIn}>
                 <p>Book</p>
-              </button>
+              </button>}
             </div>
           </div>
         </div>

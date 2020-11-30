@@ -35,31 +35,31 @@ function Profile() {
         <h3>Username</h3>
         <input
           className="inputbox"
-          placeholder={"Sahil Verma"}
+          placeholder={"Type your name here"}
           onChange={(e) => setUsername(e.target.value)}
           value={username}
         />
 
         <h3>Gender</h3>
-        <input className="inputbox" placeholder={"Male"} 
+        <input className="inputbox" placeholder={"Type your gender here"} 
          onChange={(e) => setGender(e.target.value)}
          value={gender}
          />
 
         <h3>Email address</h3>
-        <input className="inputbox" placeholder={"sahilverma2k@gmail.com"} 
+        <input className="inputbox" placeholder={"Type your email here"} 
          onChange={(e) => setEmail(e.target.value)}
          value={email}
          />
 
         <h3>Phone Number</h3>
-        <input className="inputbox" placeholder={"99101912219"} 
+        <input className="inputbox" placeholder={"Type your phone number here"} 
          onChange={(e) => setPhone(e.target.value)}
          value={phone}
          />
 
         <h3>Address</h3>
-        <input className="inputbox" placeholder={"B3/22 Delhi"} 
+        <input className="inputbox" placeholder={"Type your address here"} 
          onChange={(e) => setAddress(e.target.value)}
          value={address}/>
       </div>

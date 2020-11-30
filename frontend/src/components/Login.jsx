@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { login } from "../services/authService";
+import { login, register } from "../services/authService";
 import { useStateValue } from "../reducer/StateProvider";
 import "../styles/Login.css";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -22,16 +22,6 @@ function Login() {
 
       if (user) {
         // the user just logged in / the user was logged in
-        toast.info(`Hello ${user.username}, you are logged in`, {
-          position: "bottom-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-
         dispatch({
           type: "SET_USER",
           user: user,
@@ -47,15 +37,24 @@ function Login() {
       }
     } catch (ex) {
       if (ex.response && ex.response.status >= 400) {
-        toast.error("Invalid Username or Password!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        console.log("error");
+      }
+    }
+  };
+
+  const createAccount = async (e) => {
+    e.preventDefault();
+
+    try {
+      const { data: user } = await register(username, password);
+
+      dispatch({
+        type: "SET_USER",
+        user: user,
+      });
+      history.push("/");
+    } catch (ex) {
+      if (ex.response && ex.response.status >= 400) {
         console.log("error");
       }
     }
@@ -93,19 +92,24 @@ function Login() {
         </button>
       </form>
       <div className="socials">
-        <Google type="submit" style={{cursor: "pointer"}} onclick={signIn} classname="login_Google" />
+        <Google
+          type="submit"
+          style={{ cursor: "pointer" }}
+          onclick={signIn}
+          classname="login_Google"
+        />
         <FacebookIcon
           type="submit"
           onclick={signIn}
           classname="login_FacebookButton"
-          style={{cursor: "pointer"}}
+          style={{ cursor: "pointer" }}
         />
       </div>
       <p className="login_conditions">
         By signing-in you agree to the Atlantis' Conditions of Use & Sale.
       </p>
       <Link to="/register">
-        <button className="login__registerButton">
+        <button className="login__registerButton" onClick={createAccount}>
           Create your Atlantis Account
         </button>
       </Link>
