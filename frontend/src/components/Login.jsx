@@ -5,8 +5,6 @@ import { toast } from "react-toastify";
 import { login } from "../services/authService";
 import { useStateValue } from "../reducer/StateProvider";
 import "../styles/Login.css";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import Google from "@material-ui/icons/Google";
 
@@ -21,7 +19,6 @@ function Login() {
 
     try {
       const { data: user } = await login(username, password);
-      console.log(user);
 
       if (user) {
         // the user just logged in / the user was logged in
@@ -96,11 +93,12 @@ function Login() {
         </button>
       </form>
       <div className="socials">
-        <Google type="submit" onclick={signIn} classname="login_Google" />
+        <Google type="submit" style={{cursor: "pointer"}} onclick={signIn} classname="login_Google" />
         <FacebookIcon
           type="submit"
           onclick={signIn}
           classname="login_FacebookButton"
+          style={{cursor: "pointer"}}
         />
       </div>
       <p className="login_conditions">
