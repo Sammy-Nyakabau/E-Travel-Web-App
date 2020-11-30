@@ -4,8 +4,11 @@ const { Listing } = require("../models/listingsModel");
 // @route   GET /api/listings/pageNumber
 // @access  Public
 const getListings = async (req, res) => {
-  const { pageNumber} = req.params;
-  const listings = await Listing.find().select("-__v").skip(pageNumber * 20).limit(20);
+  const { pageNumber } = req.params;
+  const listings = await Listing.find()
+    .select("-__v")
+    .skip(pageNumber * 20)
+    .limit(20);
   res.send(listings);
 };
 
@@ -14,7 +17,10 @@ const getListings = async (req, res) => {
 // @access  Public
 const getListingsByType = async (req, res) => {
   const { pageNumber, property_type } = req.params;
-  const listings = await Listing.find({property_type}).select("-__v").skip(pageNumber * 20).limit(20);
+  const listings = await Listing.find({ property_type })
+    .select("-__v")
+    .skip(pageNumber * 20)
+    .limit(20);
   res.send(listings);
 };
 
@@ -23,7 +29,7 @@ const getListingsByType = async (req, res) => {
 // @access  Public
 const getListingsByTypeCount = async (req, res) => {
   const { property_type } = req.params;
-  const count = await Listing.where({property_type}).countDocuments();
+  const count = await Listing.where({ property_type }).countDocuments();
   res.json(count);
 };
 
@@ -39,10 +45,31 @@ const getListingsCount = async (req, res) => {
 // @route   GET /api/listings/one/:id
 // @access  Public
 const getOneListing = async (req, res) => {
-  const { _id } = req.params
+  const { _id } = req.params;
 
-  const listing = await Listing.findOne({_id})
-  res.send(listing)
+  const listing = await Listing.findOne({ _id });
+  res.send(listing);
+};
+
+// @desc    Update a listings ratings
+// @route   PUT /api/listings/:id
+// @access  Public
+const updateListing = async (req, res) => {
+  const { _id } = req.params;
+
+  const { reviews_count, start_rating } = req.body;
+  const listing = await Listing.findByIdAndUpdate(
+    _id,
+    {
+      reviews_count,
+      start_rating,
+    },
+    {
+      new: true,
+    }
+  );
+
+  res.send(listing);
 };
 
 module.exports = {
@@ -50,5 +77,6 @@ module.exports = {
   getListingsByType,
   getListingsCount,
   getListingsByTypeCount,
-  getOneListing
+  getOneListing,
+  updateListing,
 };
