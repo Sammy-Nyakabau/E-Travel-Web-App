@@ -27,7 +27,7 @@ const getListingsByTypeCount = async (req, res) => {
   res.json(count);
 };
 
-  // @desc    Fetch the total number of listings returned
+// @desc    Fetch the total number of listings returned
 // @route   GET /api/listings/count
 // @access  Public
 const getListingsCount = async (req, res) => {
@@ -35,9 +35,20 @@ const getListingsCount = async (req, res) => {
   res.json(count);
 };
 
+// @desc    Fetch the listing with the matching id
+// @route   GET /api/listings/one/:id
+// @access  Public
+const getOneListing = async (req, res) => {
+  const { _id } = req.params
+
+  const listing = await Listing.findOne({_id})
+  res.send(listing)
+};
+
 module.exports = {
   getListings,
   getListingsByType,
   getListingsCount,
-  getListingsByTypeCount
+  getListingsByTypeCount,
+  getOneListing
 };
