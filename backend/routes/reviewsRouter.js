@@ -1,24 +1,13 @@
-const { Review } = require("../models/reviewsModel");
 const express = require("express");
 const router = express.Router();
 
-router.get("/:id", async (req, res) => {
-  const { id: product } = req.params;
-  const review = await Review.find({ product }).select("-__v");
-  res.send(review);
-});
+const {
+  createReview,
+  getReviewsOfAListing,
+} = require("../controllers/reviewsController");
 
-router.post("/", async (req, res) => {
-  const { location, review, verified } = req.body;
+router.get("/:listing", getReviewsOfAListing);
 
-  const newReview = new Review({
-    location,
-    review,
-    verified
-  });
-  const createdReview = await newReview.save();
-
-  res.status(201).json(createdReview);
-});
+router.post("/", createReview);
 
 module.exports = router;
