@@ -15,7 +15,8 @@
 .hotel_name{
     color: #222222  ;
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif  ;
-    font-weight: 400  ;
+    
+    font-weight: 40  ;
     font-size: 26px  ;
     line-height: 20px  ;
 }  
@@ -32,13 +33,11 @@
     align-items: center;
     color: rgb(34, 34, 34)  ;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
-    font-weight: 600  ;
     font-size: 14px  ;
     line-height: 20px  ;
 }
 .hotel_location{
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
-    font-weight: 400  ;
     text-decoration: underline;
     font-variant: inherit  ;
     font-size: 14px  ;
@@ -64,9 +63,10 @@
 .hosting_name{
     color: rgb(34, 34, 34) ;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
-    font-weight: 600;
     font-size: 22px;
     line-height: 26px ;
+    font-weight: 80;
+    padding-bottom: 20px;
 }
 .hotel_features{
     color: #484848;
@@ -125,17 +125,18 @@
     width: 20px;
 }
 .rating_number{
-    font-size: 1.5em !important;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
     padding-left: 10px;
 }
 
 /* This is the the search hover on the right hand side */
 .hotel_right{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-left: 40px;
 }
+
 
 .selector_hotel {
     border-radius: 10px;
@@ -226,7 +227,6 @@
     align-items: center;
     color: rgb(34, 34, 34)  ;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
-    font-weight: 60  ;
     font-size: 18px  ;
     line-height: 20px  ;
 
@@ -238,14 +238,12 @@
     align-items: center;
     color: rgb(34, 34, 34)  ;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
-    font-weight: 60  ;
     font-size: 18px  ;
     line-height: 20px  ;
   }
   .rating_number_float{
     color: rgb(34, 34, 34)  ;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
-    font-weight: 60  ;
     font-size: 18px  ;
     line-height: 20px  ;
     padding-left: 5px;
