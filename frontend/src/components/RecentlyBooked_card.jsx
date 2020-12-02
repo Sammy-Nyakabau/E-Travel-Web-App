@@ -12,9 +12,6 @@ function RecentlyBooked_card({
     location,
     title,
     description,
-    star,
-    price,
-    total,
     property_type
 }) {
     return (
