@@ -1,11 +1,16 @@
 
+
 .searchResult1 {
     display: flex;
     position: relative;
    
-    padding-bottom: 10px;
+    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    padding: 40px;
+
     cursor: pointer;
     width:100%;
+    margin-bottom: 30px;
   }
 
 /* .searchResult1:hover {
@@ -74,6 +79,7 @@
 }
 .submit-review{
     padding:5px;
+    margin-top: 10px;
     width:130px;
     border-radius: 20px;
     border: none;
