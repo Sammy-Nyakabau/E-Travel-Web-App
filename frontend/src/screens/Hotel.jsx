@@ -21,6 +21,7 @@ const Hotel = () => {
   const [price, setPrice] = useState(item.night_price);
   const [endDate, setEndDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
+  const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
     const start = !startDate ? moment() : moment(startDate._d);
@@ -30,7 +31,18 @@ const Hotel = () => {
 
     setPrice(cost);
 
-  }, [startDate, endDate, item.night_price, moment]);
+    const fetchBookings = async () => {
+      const { data: res } = await getBookings(item._id);
+      let fetchedBookings = [];
+
+      res.forEach((element) => {
+        fetchedBookings = [...fetchedBookings, element.booking];
+      });
+      setBookings(fetchedBookings);
+    };
+
+    fetchBookings();
+  }, [startDate, endDate, item.night_price, moment, item._id]);
 
   const handleBooking = async () => {
     const booking = {
@@ -42,26 +54,23 @@ const Hotel = () => {
     history.push("/");
   };
 
-    const handleNotLoggedIn = () => {
-      history.push("/");
-    }
+  const handleNotLoggedIn = () => {
+    history.push("/");
+  };
 
-
-  const handleBookedDates = async (date) => {
-    const { data: res } = await getBookings(item._id);
-    const bookings = [];
-
-    res.forEach((element) => {
-      bookings.push(element.booking);
-    });
+  const handleBookedDates = (date) => {
     let bookedRanges = [];
-    let blocked = false;
+    let blocked;
+
     bookings.forEach((booking) => {
-      bookedRanges.push(moment.range(booking.startDate, booking.endDate));
+      bookedRanges = [
+        ...bookedRanges,
+        moment.range(booking.startDate, booking.endDate),
+      ];
     });
     blocked = bookedRanges.find((range) => range.contains(date));
-    console.log(date)
-    // return blocked;
+
+    return blocked;
   };
 
   return (
@@ -134,7 +143,7 @@ const Hotel = () => {
                 }} // PropTypes.func.isRequired,
                 focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                 onFocusChange={(focusedInput) => setFocusedInput(focusedInput)} // PropTypes.func.isRequired,
-                // isDayBlocked={(date) => handleBookedDates(date)}
+                isDayBlocked={handleBookedDates}
               />
             </div>
 
@@ -170,9 +179,14 @@ const Hotel = () => {
               />
             </div>
             <div className="book_button">
-              {<button className="book" onClick={user ? handleBooking : handleNotLoggedIn}>
-                <p>Book</p>
-              </button>}
+              {
+                <button
+                  className="book"
+                  onClick={user ? handleBooking : handleNotLoggedIn}
+                >
+                  <p>Book</p>
+                </button>
+              }
             </div>
           </div>
         </div>
