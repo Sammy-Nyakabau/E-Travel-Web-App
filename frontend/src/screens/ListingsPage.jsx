@@ -13,6 +13,8 @@ import { useStateValue } from "../reducer/StateProvider";
 import { Button } from "@material-ui/core";
 import SearchResult from "../components/SearchResult";
 import Pagination from "@material-ui/lab/Pagination";
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 function ListingsPage() {
   const history = useHistory();
@@ -30,7 +32,7 @@ function ListingsPage() {
       const { data: total } = propertyType
         ? await getListingsByTypeCount(propertyType)
         : await getListingsCount();
-        
+
       window.scrollTo(0, 0);
 
       setListings(result);
@@ -46,17 +48,52 @@ function ListingsPage() {
       item: listing,
     });
     history.push("/Hotel");
-  }
+  };
 
   return (
     <div className="searchPage">
       <SearchPage_banner />
       <div className="searchPage__info">
-        {search && <p>62 stays · 26 august to 30 august · 2 guest</p>}
-        <Button variant="outlined">Type of place</Button>
-        <Button variant="outlined">Price</Button>
-        <Button variant="outlined">Rooms and beds</Button>
-        <Button variant="outlined">More filters</Button>
+        {/* {search && <p>62 stays · 26 august to 30 august · 2 guest</p>} */}
+        <p className="stay_conditions">
+          62 stays · 26 august to 30 august · 2 guest
+        </p>
+        <Button variant="outlined">
+          Price<ArrowDropUpIcon />
+          {/* {this.state.sortColumn.order === "asc" ? (
+            <span>
+              <ArrowDropUpIcon />
+            </span>
+          ) : (
+            <span>
+              <ArrowDropDownIcon />
+            </span>
+          )} */}
+        </Button>
+        <Button variant="outlined">
+          Rating<ArrowDropUpIcon />
+          {/* {this.state.sortColumn.order === "asc" ? (
+            <span>
+              <ArrowDropUpIcon />
+            </span>
+          ) : (
+            <span>
+              <ArrowDropDownIcon />
+            </span>
+          )} */}
+        </Button>
+        <Button variant="outlined">
+          Review<ArrowDropUpIcon />
+          {/* {this.state.sortColumn.order === "asc" ? (
+            <span>
+              <ArrowDropUpIcon />
+            </span>
+          ) : (
+            <span>
+              <ArrowDropDownIcon />
+            </span>
+          )} */}
+        </Button>
       </div>
 
       {listings.map((listing) => (

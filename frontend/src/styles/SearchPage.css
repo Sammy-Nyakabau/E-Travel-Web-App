@@ -25,3 +25,9 @@
     display: flex;
     justify-content: center;
   }
+  .stay_conditions{
+    margin: 5px;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    color:rgb(109, 106, 106);
+    font-size: smaller;
+  }
