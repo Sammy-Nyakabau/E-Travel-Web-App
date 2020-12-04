@@ -18,8 +18,8 @@ const Hotel = () => {
   const moment = extendMoment(Moment);
   const history = useHistory();
   const [{ item, user }] = useStateValue();
-  const [startDate, setStartDate] = useState(null);
   const [price, setPrice] = useState(item.night_price);
+  const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
   const [bookings, setBookings] = useState([]);

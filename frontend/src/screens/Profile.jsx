@@ -18,11 +18,11 @@ function Profile() {
     e.preventDefault();
     try {
       const { data: updated } = await updateUser(user._id, username, email, address, gender, phone);
-      history.push("/");
       dispatch({
         type: "SET_USER",
         user: updated,
       });
+      history.push("/");
     } catch (error) {
       console.log(error);
     }
@@ -64,7 +64,7 @@ function Profile() {
          onChange={(e) => setAddress(e.target.value)}
          value={address}/>
 
-        <button className="submit-review">Submit</button>
+        <button className="submit-review" onClick={updateDetails}>Submit</button>
       </div>
     </div>
   );

@@ -18,6 +18,12 @@ export function getListingsByTypeCount(propertyType) {
 export function getListingsCount() {
   return http.get(`${apiEndpoint}/count`);
 }
+export function getFilteredListingsCount(airbnb_city, guests) {
+  return http.get(`${apiEndpoint}/search/count/${airbnb_city}/${guests}`,);
+}
+export function getFilteredListings(airbnb_city, guests, page) {
+  return http.get(`${apiEndpoint}/search/${airbnb_city}/${guests}/${page}`);
+}
 
 export function updateListing(id, reviews_count, start_rating) {
   return http.put(`${apiEndpoint}/${id}`, { reviews_count, start_rating });

@@ -51,6 +51,34 @@ const getOneListing = async (req, res) => {
   res.send(listing);
 };
 
+// @desc    Count filtered listings based on city and number of guests
+// @route   GET /api/listings/search/count/:airbnb_city/:guests
+// @access  Public
+const getFilteredListingsCount = async (req, res) => {
+  const { airbnb_city, guests } = req.params;
+
+  const count = await Listing.where({ airbnb_city })
+    .where("capacity_of_people")
+    .lte(guests)
+    .countDocuments();
+  res.json(count);
+};
+
+// @desc    Fetch filtered listings based on city and number of guests
+// @route   GET /api/listings/search/:airbnb_city/:guests/:page
+// @access  Public
+const getFilteredListings = async (req, res) => {
+  const { airbnb_city, guests, page } = req.params;
+
+  const listings = await Listing.find({
+    airbnb_city,
+    capacity_of_people: { $lte: guests },
+  })
+    .skip(page * 20)
+    .limit(20);
+  res.send(listings);
+};
+
 // @desc    Update a listings ratings
 // @route   PUT /api/listings/:id
 // @access  Public
@@ -79,4 +107,6 @@ module.exports = {
   getListingsByTypeCount,
   getOneListing,
   updateListing,
+  getFilteredListings,
+  getFilteredListingsCount,
 };
