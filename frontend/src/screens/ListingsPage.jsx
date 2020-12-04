@@ -11,12 +11,13 @@ import {
   getFilteredListings,
   getFilteredListingsCount,
 } from "../services/listingsService";
+import _ from "lodash";
 import { useStateValue } from "../reducer/StateProvider";
 import { Button } from "@material-ui/core";
 import SearchResult from "../components/SearchResult";
 import Pagination from "@material-ui/lab/Pagination";
-import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
 function ListingsPage() {
   const history = useHistory();
@@ -24,6 +25,7 @@ function ListingsPage() {
   const [listings, setListings] = useState([]);
   const [count, setCount] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortColumn, setSortColumn] = useState({ path: "name", order: "asc" });
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -61,6 +63,7 @@ function ListingsPage() {
     };
 
     fetchListings();
+
   }, [currentPage, propertyType]);
 
   const handleSelected = (listing) => {
@@ -70,6 +73,62 @@ function ListingsPage() {
     });
     history.push("/Hotel");
   };
+
+  const sortByPrice = () => {
+    let sort = { ...sortColumn };
+    sort.order = sortColumn.order === "asc" ? "desc" : "asc";
+    setSortColumn({
+        path: "night_price",
+        order: sort.order,
+    });
+    filterListings()
+  };
+  
+  const sortByRating = () => {
+    let sort = { ...sortColumn };
+    sort.order = sortColumn.order === "asc" ? "desc" : "asc";
+    setSortColumn({
+        path: "start_rating",
+        order: sort.order,
+    });
+    filterListings()
+  };
+  
+  const sortByReviews = () => {
+    let sort = { ...sortColumn };
+    sort.order = sortColumn.order === "asc" ? "desc" : "asc";
+    setSortColumn({
+        path: "reviews_count",
+        order: sort.order,
+    });
+    filterListings()
+  };
+
+  const sortByRooms = () => {
+    let sort = { ...sortColumn };
+    sort.order = sortColumn.order === "asc" ? "desc" : "asc";
+    setSortColumn({
+        path: "num_of_rooms",
+        order: sort.order,
+    });
+    filterListings()
+  };
+  
+  const sortByBaths = () => {
+    let sort = { ...sortColumn };
+    sort.order = sortColumn.order === "asc" ? "desc" : "asc";
+    setSortColumn({
+        path: "num_of_baths",
+        order: sort.order,
+    });
+    filterListings()
+  };
+
+  const filterListings = () => {
+    let filtered = listings;
+    filtered = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
+    setListings(filtered)
+  }
 
   return (
     <div className="searchPage">
@@ -82,42 +141,83 @@ function ListingsPage() {
             {search.endDate.format("MMMM")} · {search.guests} guest(s)
           </p>
         )}
-        <Button variant="outlined">
-          Price<ArrowDropUpIcon />
-          {/* {this.state.sortColumn.order === "asc" ? (
-            <span>
-              <ArrowDropUpIcon />
-            </span>
-          ) : (
-            <span>
-              <ArrowDropDownIcon />
-            </span>
-          )} */}
+        <Button variant="outlined" onClick={sortByPrice}>
+          Price
+          {
+            sortColumn.path === "night_price" ? 
+            sortColumn.order === "asc" ? (
+              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+                <ArrowUpwardIcon fontSize="small" color="inherit" />
+              </span>
+            ) : (
+              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+                <ArrowDownwardIcon fontSize="small" color="inherit"/>
+              </span>
+            ) : <span></span>
+          }
         </Button>
-        <Button variant="outlined">
-          Rating<ArrowDropUpIcon />
-          {/* {this.state.sortColumn.order === "asc" ? (
-            <span>
-              <ArrowDropUpIcon />
-            </span>
-          ) : (
-            <span>
-              <ArrowDropDownIcon />
-            </span>
-          )} */}
+        <Button variant="outlined" onClick={sortByRating}>
+          Rating
+          {
+            sortColumn.path === "start_rating" ? 
+            sortColumn.order === "asc" ? (
+              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+                <ArrowUpwardIcon fontSize="small" color="inherit" />
+              </span>
+            ) : (
+              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+                <ArrowDownwardIcon fontSize="small" color="inherit"/>
+              </span>
+            ) : <span></span>
+          }
         </Button>
-        <Button variant="outlined">
-          Review<ArrowDropUpIcon />
-          {/* {this.state.sortColumn.order === "asc" ? (
-            <span>
-              <ArrowDropUpIcon />
-            </span>
-          ) : (
-            <span>
-              <ArrowDropDownIcon />
-            </span>
-          )} */}
+        <Button variant="outlined" onClick={sortByReviews}>
+          Reviews
+          {
+            sortColumn.path === "reviews_count" ? 
+            sortColumn.order === "asc" ? (
+              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+                <ArrowUpwardIcon fontSize="small" color="inherit" />
+              </span>
+            ) : (
+              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+                <ArrowDownwardIcon fontSize="small" color="inherit"/>
+              </span>
+            ) : <span></span>
+          }
         </Button>
+        <Button variant="outlined" onClick={sortByRooms}>
+          Rooms
+          {
+            sortColumn.path === "num_of_rooms" ? 
+            sortColumn.order === "asc" ? (
+              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+                <ArrowUpwardIcon fontSize="small" color="inherit" />
+              </span>
+            ) : (
+              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+                <ArrowDownwardIcon fontSize="small" color="inherit"/>
+              </span>
+            ) : <span></span>
+          }
+        </Button>
+        
+        <Button variant="outlined" onClick={sortByBaths}>
+          Bathrooms
+          {
+            sortColumn.path === "num_of_baths" ? 
+            sortColumn.order === "asc" ? (
+              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+                <ArrowUpwardIcon fontSize="small" color="inherit" />
+              </span>
+            ) : (
+              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+                <ArrowDownwardIcon fontSize="small" color="inherit"/>
+              </span>
+            ) : <span></span>
+          }
+        </Button>
+        
       </div>
 
       {listings.map((listing) => (

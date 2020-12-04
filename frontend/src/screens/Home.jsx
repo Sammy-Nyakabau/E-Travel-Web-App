@@ -15,6 +15,11 @@ function Home() {
       type: "SET_PROPERTY_TYPE",
       propertyType,
     });
+    
+    dispatch({
+      type: "SET_SEARCH",
+      search: null,
+    });
   };
 
   return (
