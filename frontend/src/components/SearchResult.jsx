@@ -3,7 +3,7 @@ import "../styles/SearchResult.css";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import StarIcon from "@material-ui/icons/Star";
-
+import CurrencyFormat from "react-currency-format";
 import "../styles/SearchResult.css";
 import { useStateValue } from "../reducer/StateProvider";
 
@@ -17,9 +17,9 @@ function SearchResult({
   description,
   star,
   price,
-  total,
   property_type,
   onClick,
+  cost
 }) {
   const [{ search, wishlist }, dispatch] = useStateValue();
   const [added, setAdded] = useState(false);
@@ -74,7 +74,20 @@ function SearchResult({
           </div>
           <div className="searchResults__price">
             <h2>{price}</h2>
-            {search && <p>{total}</p>}
+            {search && 
+            <CurrencyFormat
+            renderText={(value) => (
+              <>
+                <p> {value} total</p>
+              </>
+            )}
+            decimalscale={2}
+            value={cost * search.endDate.diff(search.startDate, "days")}
+            displayType={"text"}
+            thousandSeparator={true}
+            prefix={"$"}
+          />
+            }
           </div>
         </div>
       </div>

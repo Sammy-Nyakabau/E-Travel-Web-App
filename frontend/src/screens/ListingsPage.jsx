@@ -8,6 +8,8 @@ import {
   getListingsByType,
   getListingsByTypeCount,
   getListingsCount,
+  getFilteredListings,
+  getFilteredListingsCount,
 } from "../services/listingsService";
 import { useStateValue } from "../reducer/StateProvider";
 import { Button } from "@material-ui/core";
@@ -23,18 +25,37 @@ function ListingsPage() {
 
   useEffect(() => {
     const fetchListings = async () => {
-      const { data: result } = propertyType
-        ? await getListingsByType(propertyType, currentPage)
-        : await getListings(currentPage);
+      if (propertyType) {
+        const { data: result } = await getListingsByType(
+          propertyType,
+          currentPage
+        );
+        const { data: total } = await getListingsByTypeCount(propertyType);
+        setListings(result);
+        setCount(total);
+      } else if (search) {
+        const { data: result } = await getFilteredListings(
+          search.location,
+          search.guests,
+          currentPage
+        );
+        const { data: total } = await getFilteredListingsCount(
+          search.location,
+          search.guests
+        );
+        setListings(result);
+        setCount(total);
 
-      const { data: total } = propertyType
-        ? await getListingsByTypeCount(propertyType)
-        : await getListingsCount();
-        
+        console.log(search.location);
+        console.log(search.guests);
+      } else {
+        const { data: result } = await getListings(currentPage);
+        const { data: total } = await getListingsCount();
+        setListings(result);
+        setCount(total);
+      }
+
       window.scrollTo(0, 0);
-
-      setListings(result);
-      setCount(total);
     };
 
     fetchListings();
@@ -46,13 +67,19 @@ function ListingsPage() {
       item: listing,
     });
     history.push("/Hotel");
-  }
+  };
 
   return (
     <div className="searchPage">
       <SearchPage_banner />
       <div className="searchPage__info">
-        {search && <p>62 stays · 26 august to 30 august · 2 guest</p>}
+        {search && (
+          <p>
+            {count} stays · {search.startDate.date()}{" "}
+            {search.startDate.format("MMMM")} to {search.endDate.date()}{" "}
+            {search.endDate.format("MMMM")} · {search.guests} guest(s)
+          </p>
+        )}
         <Button variant="outlined">Type of place</Button>
         <Button variant="outlined">Price</Button>
         <Button variant="outlined">Rooms and beds</Button>
@@ -68,10 +95,10 @@ function ListingsPage() {
           star={listing.start_rating}
           property_type={listing.property_type}
           price={`$${listing.night_price}/ night`}
-          total="$117 total"
           onClick={() => handleSelected(listing)}
           item={listing}
           id={listing.id}
+          cost={listing.night_price}
         />
       ))}
       <div className="listings_pagination">

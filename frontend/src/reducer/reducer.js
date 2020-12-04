@@ -3,7 +3,7 @@ export const initialState = {
   propertyType: null,
   wishlist: [],
   user: null,
-  search: false,
+  search: null,
   item: {},
 };
 
