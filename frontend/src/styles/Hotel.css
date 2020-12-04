@@ -258,3 +258,8 @@
   /* * {
     outline: solid #f00 1px;
   } */
+  .Recc_section{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif  ;
+    font-size: 20px  ;
+    line-height: 1.125em  ;
+  }

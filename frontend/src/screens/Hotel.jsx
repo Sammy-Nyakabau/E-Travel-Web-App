@@ -128,6 +128,7 @@ const Hotel = () => {
           {item.reviews &&
             item.reviews.map((review) => <Review review={review} />)}
         </div>
+        <p className="Recc_section">More like this:</p>
       <Recommendation_options/>
 
       </div>
