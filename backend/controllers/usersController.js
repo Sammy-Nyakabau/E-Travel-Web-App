@@ -8,10 +8,12 @@ const passport = require("passport");
 // @route   POST /api/users
 // @access  Private
 const createUser = async (req, res) => {
-  let user = await User.findOne({ username: req.body.username });
+  const { username, password } = req.body;
+
+  let user = await User.findOne({ username });
   if (user) return res.status(400).send("User already registered.");
 
-  user = new User(_.pick(req.body, ["username", "password"]));
+  user = new User({ username, password });
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
   await user.save();
