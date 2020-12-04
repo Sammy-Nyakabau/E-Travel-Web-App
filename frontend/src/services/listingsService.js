@@ -19,10 +19,21 @@ export function getListingsCount() {
   return http.get(`${apiEndpoint}/count`);
 }
 export function getFilteredListingsCount(airbnb_city, guests) {
-  return http.get(`${apiEndpoint}/search/count/${airbnb_city}/${guests}`,);
+  return http.get(`${apiEndpoint}/search/count/${airbnb_city}/${guests}`);
 }
 export function getFilteredListings(airbnb_city, guests, page) {
   return http.get(`${apiEndpoint}/search/${airbnb_city}/${guests}/${page}`);
+}
+
+export function getRecommendedListings(
+  airbnb_city,
+  property_type,
+  guests,
+  price
+) {
+  return http.get(
+    `${apiEndpoint}/recommended/${airbnb_city}/${property_type}/${guests}/${price}`
+  );
 }
 
 export function updateListing(id, reviews_count, start_rating) {

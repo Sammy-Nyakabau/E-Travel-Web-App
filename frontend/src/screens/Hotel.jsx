@@ -8,11 +8,12 @@ import { extendMoment } from "moment-range";
 import "../styles/Hotel.css";
 import { useStateValue } from "../reducer/StateProvider";
 import { createBooking, getBookings } from "../services/bookingService";
+import { getRecommendedListings } from "../services/listingsService";
 import Map from "../components/Map";
 import Review from "../components/Review";
 import StarIcon from "@material-ui/icons/Star";
 import "react-dates/lib/css/_datepicker.css";
-import Recommendation_options from "../components/Recommendation_options"
+import RecommendationOptions from "../components/RecommendationOptions";
 
 const Hotel = () => {
   const moment = extendMoment(Moment);
@@ -23,6 +24,7 @@ const Hotel = () => {
   const [endDate, setEndDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
   const [bookings, setBookings] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
 
   useEffect(() => {
     const start = !startDate ? moment() : moment(startDate._d);
@@ -42,8 +44,29 @@ const Hotel = () => {
       setBookings(fetchedBookings);
     };
 
+    const fetchRecommendedListings = async () => {
+      const { data: rec } = await getRecommendedListings(
+        item.airbnb_city,
+        item.property_type,
+        item.capacity_of_people,
+        item.night_price
+      );
+
+      setRecommendations(rec);
+    };
+
     fetchBookings();
-  }, [startDate, endDate, item.night_price, moment, item._id]);
+    fetchRecommendedListings();
+  }, [
+    startDate,
+    endDate,
+    item.night_price,
+    moment,
+    item._id,
+    item.airbnb_city,
+    item.capacity_of_people,
+    item.property_type,
+  ]);
 
   const handleBooking = async () => {
     const booking = {
@@ -76,7 +99,6 @@ const Hotel = () => {
 
   return (
     <div className="hotel">
-
       <div className="hotel_left">
         <div className="hotel_card">
           <div className="hotel_name">{item.name}</div>
@@ -129,8 +151,13 @@ const Hotel = () => {
             item.reviews.map((review) => <Review review={review} />)}
         </div>
         <p className="Recc_section">More like this:</p>
-      <Recommendation_options/>
-
+        {recommendations.length > 0 && (
+          <RecommendationOptions
+            one={recommendations[0]}
+            two={recommendations[1]}
+            three={recommendations[2]}
+          />
+        )}
       </div>
       <div className="hotel_right">
         <div className="hotel_card_float">
@@ -196,8 +223,6 @@ const Hotel = () => {
           </div>
         </div>
       </div>
-      
-      
     </div>
   );
 };

@@ -9,9 +9,14 @@ const {
   getOneListing,
   updateListing,
   getFilteredListings,
-  getFilteredListingsCount
+  getFilteredListingsCount,
+  getRecommendedListings,
 } = require("../controllers/listingsController");
 
+router.get(
+  "/recommended/:airbnb_city/:property_type/:guests/:price",
+  getRecommendedListings
+);
 router.get("/search/count/:airbnb_city/:guests", getFilteredListingsCount);
 router.get("/search/:airbnb_city/:guests/:page", getFilteredListings);
 router.get("/one/:_id", getOneListing);

@@ -79,6 +79,30 @@ const getFilteredListings = async (req, res) => {
   res.send(listings);
 };
 
+// @desc    Fetch recommended listings based on current listings
+// @route   GET /api/listings/recommended/:airbnb_city/:property_type/:guests/:price
+// @access  Public
+const getRecommendedListings = async (req, res) => {
+  const { airbnb_city, property_type, guests, price } = req.params;
+
+  let listings = await Listing.find({
+    airbnb_city,
+    property_type
+    ,
+    capacity_of_people: { $lte: guests },
+  }).skip(1).limit(3);
+
+  if (listings < 3) {
+    listings = await Listing.find({
+      airbnb_city,
+      night_price: { $lte: price + 15 },
+    }).skip(1).limit(3);
+    
+  }
+  
+  res.send(listings);
+};
+
 // @desc    Update a listings ratings
 // @route   PUT /api/listings/:id
 // @access  Public
@@ -106,6 +130,7 @@ module.exports = {
   getListingsCount,
   getListingsByTypeCount,
   getOneListing,
+  getRecommendedListings,
   updateListing,
   getFilteredListings,
   getFilteredListingsCount,
