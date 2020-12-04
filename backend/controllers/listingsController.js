@@ -65,11 +65,11 @@ const getFilteredListingsCount = async (req, res) => {
 };
 
 // @desc    Fetch filtered listings based on city and number of guests
-// @route   GET /api/listings/search/:airbnb_city/:guests/:id
+// @route   GET /api/listings/search/:airbnb_city/:guests/:page
 // @access  Public
 const getFilteredListings = async (req, res) => {
   const { airbnb_city, guests, page } = req.params;
-  
+
   const listings = await Listing.find({
     airbnb_city,
     capacity_of_people: { $lte: guests },
