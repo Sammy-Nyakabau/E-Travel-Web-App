@@ -1,0 +1,5 @@
+.recc__section {
+  display: flex;
+
+  justify-content: space-between;
+}

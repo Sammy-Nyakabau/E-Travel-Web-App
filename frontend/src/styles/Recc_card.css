@@ -1,0 +1,44 @@
+.Recc_card {
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.5);
+    transition: transform 100ms ease-in;
+    cursor: pointer;
+    align-items: center;
+    max-width:200px;
+    max-height: 300px;
+  }
+  
+  .Recc_card:hover {
+    transform: scale(1.07);
+  }
+  
+  .Recc_card > img {
+    object-fit: cover;
+    max-width: 200px;
+    max-height: 200px;
+    width: 100%;
+  }
+  
+  .Recc_card__info {
+      border-radius: 10px;
+      padding-left: 10px;
+      padding-top: 10px;
+      border: 1;
+    }
+  
+    .Recc_card__info > h2 {
+      font-size: 12px;
+      color: black;
+    }
+    
+    .Recc_card__info > h2 {
+      font-size: 12px;
+      margin-top: 0px!important;
+    }
+    .Recc_card__info > h3 {
+        font-size: 12px;
+        margin-top: 0px!important;
+
+      }

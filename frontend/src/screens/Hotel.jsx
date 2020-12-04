@@ -12,6 +12,7 @@ import Map from "../components/Map";
 import Review from "../components/Review";
 import StarIcon from "@material-ui/icons/Star";
 import "react-dates/lib/css/_datepicker.css";
+import Recommendation_options from "../components/Recommendation_options"
 
 const Hotel = () => {
   const moment = extendMoment(Moment);
@@ -75,6 +76,7 @@ const Hotel = () => {
 
   return (
     <div className="hotel">
+
       <div className="hotel_left">
         <div className="hotel_card">
           <div className="hotel_name">{item.name}</div>
@@ -126,6 +128,8 @@ const Hotel = () => {
           {item.reviews &&
             item.reviews.map((review) => <Review review={review} />)}
         </div>
+      <Recommendation_options/>
+
       </div>
       <div className="hotel_right">
         <div className="hotel_card_float">
@@ -191,6 +195,8 @@ const Hotel = () => {
           </div>
         </div>
       </div>
+      
+      
     </div>
   );
 };
