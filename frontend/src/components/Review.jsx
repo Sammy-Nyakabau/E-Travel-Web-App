@@ -6,6 +6,7 @@ const Review = ({ review }) => {
       <div className="reviewer_info">
         <div className="reviewer_name">{review.name}</div>
       </div>
+               
       <div className="review_writeup">
         <p>
           {review.writeup}
