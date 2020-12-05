@@ -45,7 +45,7 @@ function Wishlist_card({
         className="searchResult__heart"
         onClick={() => handleWishlist()}
       >
-        {added ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+        {added ? <FavoriteIcon style={{ fill: "D90964" }} /> : <FavoriteBorderIcon />}
       </div>
 
       <div className="searchResult__info1">

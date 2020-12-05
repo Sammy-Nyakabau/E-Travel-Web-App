@@ -6,6 +6,7 @@ import Home from "./screens/Home";
 import Profile from "./screens/Profile";
 import Hotel from "./screens/Hotel";
 import Wishlist from "./screens/Wishlist";
+import HostListings from "./screens/HostListings";
 import RecentlyBooked from "./screens/RecentlyBooked";
 import Header from "./components/Header";
 import ScrollToTop from "./components/ScrollToTop";
@@ -23,6 +24,11 @@ function App() {
             <Route path="/ListingsPage">
               <Header />
               <ListingsPage />
+              <Footer />
+            </Route>
+            <Route path="/HostListings">
+              <Header />
+              <HostListings />
               <Footer />
             </Route>
             <Route path="/Wishlist">

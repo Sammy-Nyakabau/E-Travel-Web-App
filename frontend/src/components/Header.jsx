@@ -56,6 +56,13 @@ function Header() {
           <p onClick={() => resetListings()} >Our Listings</p>
         </Link>
 
+        <Link
+          to="/HostListings"
+          style={{ color: "inherit", textDecoration: "inherit" }}
+        >
+          <p onClick={() => resetListings()} >Host</p>
+        </Link>
+
         {user ? (
           <Link style={{ color: "inherit", textDecoration: "inherit" }}>
             <p onClick={() => logOut()}>Logout</p>
