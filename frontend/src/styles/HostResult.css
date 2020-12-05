@@ -7,10 +7,6 @@
     cursor: pointer;
   }
 
-.HostResult:hover {
-    opacity: 0.8;
-}
-
 .HostResult > img {
     height: 200px;
     width: 350px;

@@ -26,6 +26,7 @@ function HostListings() {
             <div className='HostPage__info'>
                 
             </div>
+            <h2 className="YourListings">Your Listings:</h2>
             <HostResult
                 img="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU"
                 location="Private room in center of London"
