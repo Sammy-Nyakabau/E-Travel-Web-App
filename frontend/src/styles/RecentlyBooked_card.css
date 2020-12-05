@@ -108,3 +108,9 @@
     display: flex;
     color:#FF385C;
 }
+.booked_date_start{
+    padding-right:3px ;
+}
+.booked_date_end{
+    padding-left:3px ;
+}

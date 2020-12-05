@@ -44,8 +44,9 @@ function RecentlyBooked_card({
           <div className="searchResult__infoTop2">
           <p>{location}</p>
           <div className="booked_date">
-          <p className="booked_date_start">3 March 2020 -</p>
-          <p className="booked_date_end">3 March 2020</p>
+          <p className="booked_date_start">3 March 2020 </p>
+          <p> - </p>
+          <p className="booked_date_end"> 3 March 2020</p>
           </div>
           </div>
           
