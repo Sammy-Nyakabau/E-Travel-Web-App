@@ -114,3 +114,13 @@
 .booked_date_end{
     padding-left:3px ;
 }
+.rate{
+    
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.ui.form textarea{
+    border:0px!important;
+    padding:0px!important;
+    
+}

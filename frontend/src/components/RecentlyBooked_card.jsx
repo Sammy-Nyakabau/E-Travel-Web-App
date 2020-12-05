@@ -10,7 +10,7 @@ import "../styles/SearchResult.css";
 
 
 const labels = {
-    1: "Useless",
+    1: "Useless" ,
     2: "Poor",
     3: "Ok",
     4: "Good",
@@ -54,6 +54,7 @@ function RecentlyBooked_card({
           <p>{property_type}</p>
           <p>{description}</p>
         </div>
+        <div className="rate">
         <div className={classes.root}>
       <Rating
         name="hover-feedback"
@@ -68,6 +69,8 @@ function RecentlyBooked_card({
       />
       {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
     </div>
+        </div>
+        
         <div className="write_review">
           <Semantic_textarea />
         </div>
