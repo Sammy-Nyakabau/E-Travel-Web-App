@@ -1,16 +1,28 @@
 /* eslint-disable */
 import React, { useState, useEffect } from "react";
-import LanguageIcon from "@material-ui/icons/Language";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Link } from "react-router-dom";
 import Header_login from "./Header_login";
 import Dropdown_options from "./Dropdown_options";
 import { useStateValue } from "../reducer/StateProvider";
+import { getLoggedInUser } from "../services/userService";
 import "../styles/Header.css";
 
 function Header() {
   const [header, setheader] = useState(false);
   const [{ user }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    const fetchLoggedInUser = async () => {
+      const { data: res } = await getLoggedInUser();
+
+      dispatch({
+        type: "SET_USER",
+        user: res,
+      });
+    };
+
+    fetchLoggedInUser();
+  }, []);
 
   const resetListings = () => {
     dispatch({
@@ -29,7 +41,7 @@ function Header() {
       type: "SET_USER",
       user: null,
     });
-  }
+  };
 
   const changeBackground = () => {
     console.log(window.ScrollY);
@@ -48,12 +60,12 @@ function Header() {
         </Link>
       </div>
       <div className="header_right">
-        {user ? <Dropdown_options /> :  <div></div>}
+        {user ? <Dropdown_options /> : <div></div>}
         <Link
           to="/ListingsPage"
           style={{ color: "inherit", textDecoration: "inherit" }}
         >
-          <p onClick={() => resetListings()} >Our Listings</p>
+          <p onClick={() => resetListings()}>Our Listings</p>
         </Link>
 
         {user ? (

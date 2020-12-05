@@ -10,12 +10,13 @@ import "../styles/React_dates_overrides.css";
 function Home() {
   const [{}, dispatch] = useStateValue();
 
+  
+
   const filterListings = (propertyType) => {
     dispatch({
       type: "SET_PROPERTY_TYPE",
       propertyType,
     });
-    
     dispatch({
       type: "SET_SEARCH",
       search: null,

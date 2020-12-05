@@ -27,6 +27,19 @@ const createUser = async (req, res) => {
 const loginUser = (req, res) => {
   res.send(req.user);
 };
+// @desc    Log in User
+// @route   POST /api/users/success
+// @access  Private
+const getLoggedInUser = (req, res) => {
+  res.send(req.user);
+};
+
+// @desc    Log in User using Google
+// @route   GET /api/users/auth/google/redirect
+// @access  Private
+const googleLogin = (req, res) => {
+  res.redirect(process.env.CLIENT_HOME);
+};
 
 const logOut = (req, res) => {
   req.logout();
@@ -63,4 +76,6 @@ module.exports = {
   logOut,
   loginUser,
   updateUser,
+  googleLogin,
+  getLoggedInUser,
 };

@@ -92,12 +92,15 @@ function Login() {
         </button>
       </form>
       <div className="socials">
+        <a href="http://localhost:5000/api/users/auth/google">
         <Google
           type="submit"
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", color: "black" }}
           onclick={signIn}
           classname="login_Google"
         />
+
+        </a>
         <FacebookIcon
           type="submit"
           onclick={signIn}
