@@ -149,12 +149,12 @@ const Hotel = () => {
           </div>
         </div>
         <div className="hotel-reviews">
-          <div className="review_rating">
+          {/* <div className="review_rating">
             <StarIcon style={{ fontSize: 30, fill: "FF9529" }} />
             <p className="rating_number">
               {item.start_rating}({item.reviews_count})
             </p>
-          </div>
+          </div> */}
           {reviews && reviews.map((review) => <Review review={review} />)}
         </div>
         <p className="Recc_section">More like this:</p>
