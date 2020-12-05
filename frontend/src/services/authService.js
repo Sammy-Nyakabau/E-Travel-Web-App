@@ -6,6 +6,10 @@ export function login(username, password) {
   return http.post(`${apiEndpoint}/login`, {username, password});
 }
 
+export function googleLogin() {
+  return http.get(`${apiEndpoint}/auth/google`);
+}
+
 export function logout() {
   return http.get(`${apiEndpoint}/logout`);
 }

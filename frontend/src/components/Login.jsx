@@ -92,18 +92,21 @@ function Login() {
         </button>
       </form>
       <div className="socials">
-        <Google
-          type="submit"
-          style={{ cursor: "pointer" }}
-          onclick={signIn}
-          classname="login_Google"
-        />
-        <FacebookIcon
-          type="submit"
-          onclick={signIn}
-          classname="login_FacebookButton"
-          style={{ cursor: "pointer" }}
-        />
+        <a href="http://localhost:5000/api/users/auth/google">
+          <Google
+            type="submit"
+            style={{ cursor: "pointer", color: "black" }}
+            classname="login_Google"
+          />
+        </a>
+
+        <a href="http://localhost:5000/api/users/auth/facebook">
+          <FacebookIcon
+            type="submit"
+            classname="login_FacebookButton"
+            style={{ cursor: "pointer", color: "black" }}
+          />
+        </a>
       </div>
       <p className="login_conditions">
         By signing-in you agree to the Atlantis' Conditions of Use & Sale.
