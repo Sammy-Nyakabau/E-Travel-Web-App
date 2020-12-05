@@ -45,6 +45,7 @@ module.exports = function (app) {
         clientID: process.env.FACEBOOK_APP_ID,
         clientSecret: process.env.FACEBOOK_APP_SECRET,
         callbackURL: "http://localhost:5000/api/users/auth/facebook/callback",
+        profileFields: ['id', 'displayName', 'photos', 'email']
       },
       async (accessToken, refreshToken, profile, done) => {
         const currentUser = await User.findOne({ facebookId: profile.id });
@@ -57,8 +58,8 @@ module.exports = function (app) {
           const newUser = await new User({
             facebookId: profile.id,
             username: profile.displayName,
+            email: profile.emails[0].value,
           }).save();
-          console.log(newUser);
           done(null, newUser);
         }
       }

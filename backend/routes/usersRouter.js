@@ -18,7 +18,13 @@ router.get(
     scope: ["profile", "email"],
   })
 );
-router.get("/auth/facebook", passport.authenticate("facebook"));
+router.get(
+  "/auth/facebook",
+  passport.authenticate("facebook", {
+    authType: "reauthenticate",
+    scope: ["email"],
+  })
+);
 router.get("/success", getLoggedInUser);
 router.post("/register", createUser);
 router.post("/login", passport.authenticate("local"), loginUser);
