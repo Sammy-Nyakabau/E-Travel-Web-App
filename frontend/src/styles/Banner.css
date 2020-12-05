@@ -88,6 +88,7 @@
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
   transition: background-color ease 400ms;
+  outline-width: 0px;
 }
 .Search_button button:hover {
   color: white;
