@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+}
+.ListingInput{
+    
+    max-width: 1080px; 
+    border-radius: 10px;
+    margin: 0 auto;
+    padding:20px; 
+}
+.input_fields{
+    display: flex;
+    flex-direction: column;
+}
+.drop1{
+    margin-top:20px;
+    width:350px;
+}
+.drop2{
+    margin-top:20px;
+    width:350px;
+}
+.drop3{
+    margin-top:20px;
+    width:350px;
+}
+.drop4{
+    margin-top:20px;
+    display: inline;
+    align-items: center;
+}
+.drop5{
+    margin-top:20px;
+}
+.drop6{
+    margin-top:20px;
+}
+.drop7{
+    margin-top:20px;
+}
+.drop8{
+    margin-top:20px;
+}
+.drop9{
+    margin-top:20px;
+}
+.drop10{
+    margin-top:20px;
+}
+.occupancy{
+    width:350px;
+}
+.rooms{
+    width:350px;
+}
+.property{
+    width:350px;
+}
+.lat{
+    width:350px;
+}
+.longi{
+    width:350px;
+}

@@ -64,8 +64,9 @@ function Profile() {
          onChange={(e) => setAddress(e.target.value)}
          value={address}/>
 
-        <button className="submit-review" onClick={updateDetails}>Submit</button>
+        
       </div>
+      <button className="submit-review" onClick={updateDetails}>Submit</button>
     </div>
   );
 }
