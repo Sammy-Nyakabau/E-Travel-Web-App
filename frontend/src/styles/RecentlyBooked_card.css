@@ -99,3 +99,12 @@
     /* align-content: flex-end; */
     padding-top: 5px;
 }
+.searchResult__infoTop2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.booked_date{
+    display: flex;
+    color:#FF385C;
+}
