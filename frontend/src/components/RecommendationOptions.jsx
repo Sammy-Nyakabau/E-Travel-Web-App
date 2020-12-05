@@ -1,6 +1,6 @@
 import React from "react";
 import RecCard from "./RecCard";
-import "../styles/Recommendation_options.css";
+import "../styles/RecommendationOptions.css";
 
 function RecommendationOptions({ one, two, three }) {
   return (

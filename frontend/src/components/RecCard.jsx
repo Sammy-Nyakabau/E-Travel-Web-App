@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Recc_card.css";
+import "../styles/RecCard.css";
 import CurrencyFormat from "react-currency-format";
 import StarIcon from "@material-ui/icons/Star";
 
@@ -7,12 +7,12 @@ function RecCard({ src, title, rating, price, onClick }) {
   return (
     <div className="Recc_card" onClick={onClick}>
       <div>
-        <img src={src} alt="" style={{ objectFit: "cover" }} />
+        <img className="RecCard_img" src={src} alt="" style={{ objectFit: "cover" }} />
       </div>
       <div className="Recc_card__info">
         <h2>{title}</h2>
-        <div>
-          <StarIcon style={{ fill: "FF9529" }} />
+        <div className="RecCard_rating">
+          <StarIcon className="RecCard_star" style={{ fill: "D90964" }} />
           <p>{rating}</p>
         </div>
         <CurrencyFormat

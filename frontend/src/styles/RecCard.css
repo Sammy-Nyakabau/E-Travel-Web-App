@@ -7,25 +7,27 @@
     cursor: pointer;
     align-items: center;
     max-width:200px;
-    max-height: 300px;
+    max-height: 260px;
   }
   
   .Recc_card:hover {
     transform: scale(1.07);
   }
   
-  .Recc_card > img {
+  .RecCard_img {
     object-fit: cover;
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 300px;
+    max-height: 130px;
     width: 100%;
   }
   
   .Recc_card__info {
       border-radius: 10px;
       padding-left: 10px;
-      padding-top: 10px;
+      padding-top: 5px;
       border: 1;
+      padding:5px;
+      margin-bottom: 0px!important;
     }
   
     .Recc_card__info > h2 {
@@ -36,9 +38,19 @@
     .Recc_card__info > h2 {
       font-size: 12px;
       margin-top: 0px!important;
+      margin-bottom: 0px!important;
+      
     }
     .Recc_card__info > h3 {
         font-size: 12px;
         margin-top: 0px!important;
 
+      }
+      .RecCard_rating{
+        display:flex;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      .RecCard_star{
+        color: #D90964;
       }
