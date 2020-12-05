@@ -8,6 +8,7 @@ import { extendMoment } from "moment-range";
 import "../styles/Hotel.css";
 import { useStateValue } from "../reducer/StateProvider";
 import { createBooking, getBookings } from "../services/bookingService";
+import { getReviews } from "../services/reviewsService";
 import { getRecommendedListings } from "../services/listingsService";
 import Map from "../components/Map";
 import Review from "../components/Review";
@@ -25,6 +26,7 @@ const Hotel = () => {
   const [focusedInput, setFocusedInput] = useState(null);
   const [bookings, setBookings] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     const start = !startDate ? moment() : moment(startDate._d);
@@ -55,8 +57,14 @@ const Hotel = () => {
       setRecommendations(rec);
     };
 
+    const fetchReviews = async () => {
+      const { data: res } = await getReviews(item._id);
+      setReviews(res);
+    };
+
     fetchBookings();
     fetchRecommendedListings();
+    fetchReviews();
   }, [
     startDate,
     endDate,
@@ -147,8 +155,7 @@ const Hotel = () => {
               {item.start_rating}({item.reviews_count})
             </p>
           </div>
-          {item.reviews &&
-            item.reviews.map((review) => <Review review={review} />)}
+          {reviews && reviews.map((review) => <Review review={review} />)}
         </div>
         <p className="Recc_section">More like this:</p>
         {recommendations.length > 0 && (

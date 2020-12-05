@@ -22,3 +22,6 @@ export function updateUser(id, username, email, address, gender, phoneNumber) {
 export function getLoggedInUser() {
   return http.get(`${apiEndpoint}/success`, config);
 }
+export function getUser(id) {
+  return http.get(`${apiEndpoint}/one/${id}`);
+}

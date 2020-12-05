@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getUser } from "../services/userService";
+import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 
 const Review = ({ review }) => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data: res } = await getUser(review.user);
+      setUser(res);
+    };
+    fetchUser();
+  }, [review.user]);
   return (
     <div className="review">
       <div className="reviewer_info">
-        <div className="reviewer_name">{review.name}</div>
+        {user && (
+          <div className="reviewer_name">
+            {user.username}{" "}
+            {review.verified ? (
+              <span>
+                <VerifiedUserIcon />
+              </span>
+            ) : (
+              <span></span>
+            )}
+          </div>
+        )}
       </div>
-               
+
       <div className="review_writeup">
-        <p>
-          {review.writeup}
-        </p>
+        <p>{review.review.comment}</p>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ const {
   googleLogin,
   getLoggedInUser,
   facebookLogin,
+  getUser
 } = require("../controllers/usersController");
 
 router.get(
@@ -40,5 +41,6 @@ router.get(
 );
 router.get("/logout", logOut);
 router.put("/:id", updateUser);
+router.get("/one/:_id", getUser);
 
 module.exports = router;

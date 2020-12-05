@@ -34,6 +34,15 @@ const getLoggedInUser = (req, res) => {
   res.send(req.user);
 };
 
+// @desc    Get User given username
+// @route   POST /api/users/:_id
+// @access  Private
+const getUser = async (req, res) => {
+  const {_id } = req.params
+  const user = await User.findOne({ _id });
+  res.send(user)
+};
+
 // @desc    Log in User using Google
 // @route   GET /api/users/auth/google/redirect
 // @access  Private
@@ -86,4 +95,5 @@ module.exports = {
   googleLogin,
   getLoggedInUser,
   facebookLogin,
+  getUser
 };

@@ -137,8 +137,8 @@ function ListingsPage() {
         {search && (
           <p>
             {count} stays · {search.startDate.date()}{" "}
-            {search.startDate.format("MMMM")} to {search.endDate.date()}{" "}
-            {search.endDate.format("MMMM")} · {search.guests} guest(s)
+            {search.startDate.format("MMMM")} {search.startDate.format("YYYY")} to {search.endDate.date()}{" "}
+            {search.endDate.format("MMMM")} {search.endDate.format("YYYY")}· {search.guests} guest(s)
           </p>
         )}
         <Button variant="outlined" onClick={sortByPrice}>
