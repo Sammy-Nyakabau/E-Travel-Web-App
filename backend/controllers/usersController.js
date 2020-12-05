@@ -41,6 +41,13 @@ const googleLogin = (req, res) => {
   res.redirect(process.env.CLIENT_HOME);
 };
 
+// @desc    Log in User using Facebook
+// @route   GET /api/users/auth/facebook/callback
+// @access  Private
+const facebookLogin = (req, res) => {
+  res.redirect(process.env.CLIENT_HOME);
+};
+
 const logOut = (req, res) => {
   req.logout();
   res.redirect("/");
@@ -78,4 +85,5 @@ module.exports = {
   updateUser,
   googleLogin,
   getLoggedInUser,
+  facebookLogin,
 };

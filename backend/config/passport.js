@@ -1,5 +1,6 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const FacebookStrategy = require("passport-facebook").Strategy;
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const logger = require("../config/logger");
@@ -39,6 +40,32 @@ module.exports = function (app) {
   });
 
   passport.use(
+    new FacebookStrategy(
+      {
+        clientID: process.env.FACEBOOK_APP_ID,
+        clientSecret: process.env.FACEBOOK_APP_SECRET,
+        callbackURL: "http://localhost:5000/api/users/auth/facebook/callback",
+      },
+      async (accessToken, refreshToken, profile, done) => {
+        const currentUser = await User.findOne({ facebookId: profile.id });
+
+        if (currentUser) {
+          //if we already have a record with the given profile ID
+          done(null, currentUser);
+        } else {
+          //if not, create a new user
+          const newUser = await new User({
+            facebookId: profile.id,
+            username: profile.displayName,
+          }).save();
+          console.log(newUser);
+          done(null, newUser);
+        }
+      }
+    )
+  );
+
+  passport.use(
     new GoogleStrategy(
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
@@ -55,11 +82,11 @@ module.exports = function (app) {
           done(null, currentUser);
         } else {
           //if not, create a new user
-            const newUser = await new User({
-              googleId: profile.id,
-                username: profile.displayName,
-                email: profile.emails[0].value
-            }).save();
+          const newUser = await new User({
+            googleId: profile.id,
+            username: profile.displayName,
+            email: profile.emails[0].value,
+          }).save();
           done(null, newUser);
         }
       }
