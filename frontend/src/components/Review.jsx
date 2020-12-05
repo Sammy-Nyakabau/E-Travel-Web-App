@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getUser } from "../services/userService";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import "../styles/Review.css"
 
 const Review = ({ review }) => {
   const [user, setUser] = useState(null);
@@ -19,9 +20,9 @@ const Review = ({ review }) => {
           <div className="reviewer_name">
             {user.username}{" "}
             {review.verified ? (
-              <span>
+              
                 <VerifiedUserIcon />
-              </span>
+              
             ) : (
               <span></span>
             )}
