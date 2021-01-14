@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
 import "react-dates/initialize";
 import { Dropdown } from "semantic-ui-react";
@@ -85,12 +86,12 @@ const Banner = () => {
               startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
               endDate={endDate} // momentPropTypes.momentObj or null,
               endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-              onDatesChange={({ startDate, endDate }) => {
-                setEndDate(endDate);
-                setStartDate(startDate);
+              onDatesChange={({ start, end }) => {
+                setEndDate(end);
+                setStartDate(start);
               }} // PropTypes.func.isRequired,
               focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-              onFocusChange={(focusedInput) => setFocusedInput(focusedInput)} // PropTypes.func.isRequired,,
+              onFocusChange={(input) => setFocusedInput(input)} // PropTypes.func.isRequired,,
             />
           </div>
 

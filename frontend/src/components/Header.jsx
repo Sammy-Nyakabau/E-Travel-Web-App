@@ -1,8 +1,9 @@
-/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Header_login from "./Header_login";
-import Dropdown_options from "./Dropdown_options";
+import toast from "react-hot-toast";
+
+import HeaderLogin from "./HeaderLogin";
+import DropdownOptions from "./DropdownOptions";
 import { useStateValue } from "../reducer/StateProvider";
 import { getLoggedInUser } from "../services/userService";
 import "../styles/Header.css";
@@ -19,10 +20,12 @@ function Header() {
         type: "SET_USER",
         user: res,
       });
+      if (res) toast.success(`Logged In as ${res.username}`) 
     };
 
     fetchLoggedInUser();
-  }, []);
+  }, [dispatch]);
+
 
   const resetListings = () => {
     dispatch({
@@ -41,6 +44,7 @@ function Header() {
       type: "SET_USER",
       user: null,
     });
+    toast(`You Have Been Logged Out`)
   };
 
   const changeBackground = () => {
@@ -60,7 +64,7 @@ function Header() {
         </Link>
       </div>
       <div className="header_right">
-        {user ? <Dropdown_options /> : <div></div>}
+        {user ? <DropdownOptions /> : <div></div>}
         <Link
           to="/ListingsPage"
           style={{ color: "inherit", textDecoration: "inherit" }}
@@ -68,26 +72,12 @@ function Header() {
           <p onClick={() => resetListings()}>Our Listings</p>
         </Link>
 
-        <Link
-          to="/HostListings"
-          style={{ color: "inherit", textDecoration: "inherit" }}
-        >
-          <p onClick={() => resetListings()} >Host</p>
-        </Link>
-
-        <Link
-          to="/ListingInput"
-          style={{ color: "inherit", textDecoration: "inherit" }}
-        >
-          <p onClick={() => resetListings()} >List</p>
-        </Link>
-
         {user ? (
           <Link style={{ color: "inherit", textDecoration: "inherit" }}>
             <p onClick={() => logOut()}>Logout</p>
           </Link>
         ) : (
-          <Header_login />
+          <HeaderLogin />
         )}
       </div>
     </div>

@@ -1,12 +1,13 @@
-/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import "react-dates/initialize";
-import "../styles/RecentlyBooked.css";
-import "react-dates/lib/css/_datepicker.css";
-import RecentlyBooked_card from "../components/RecentlyBooked_card";
+
+import RecentlyBookedCard from "../components/RecentlyBookedCard";
 import { useStateValue } from "../reducer/StateProvider";
 import { getUserBookings } from "../services/bookingService";
 import { getOneListing } from "../services/listingsService";
+
+import "../styles/RecentlyBooked.css";
+import "react-dates/lib/css/_datepicker.css";
 
 const RecentlyBooked = () => {
   const [{ user }] = useStateValue();
@@ -23,10 +24,8 @@ const RecentlyBooked = () => {
           ...bookedListings,
           [listing, booking.booking.startDate, booking.booking.endDate],
         ];
-        console.log(bookedListings);
         setListings(bookedListings);
       });
-      console.log(bookings);
     };
 
     fetchBookings();
@@ -37,8 +36,7 @@ const RecentlyBooked = () => {
       <h1 className="recentlybookedlocations">Recently Booked locations:</h1>
       <div className="booked_card">
         {listings.map((listing) => (
-          <RecentlyBooked_card
-            // style={{ borderbottom: "none" }}
+          <RecentlyBookedCard
             img={listing[0].image}
             location={listing[0].address}
             title={listing[0].name}

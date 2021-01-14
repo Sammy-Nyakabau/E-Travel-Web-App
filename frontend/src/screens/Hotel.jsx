@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import "react-dates/initialize";
 import CurrencyFormat from "react-currency-format";
@@ -5,16 +6,18 @@ import { useHistory } from "react-router-dom";
 import { DateRangePicker } from "react-dates";
 import Moment from "moment";
 import { extendMoment } from "moment-range";
-import "../styles/Hotel.css";
+import StarIcon from "@material-ui/icons/Star";
+
 import { useStateValue } from "../reducer/StateProvider";
 import { createBooking, getBookings } from "../services/bookingService";
 import { getReviews } from "../services/reviewsService";
 import { getRecommendedListings } from "../services/listingsService";
+import RecommendationOptions from "../components/RecommendationOptions";
 import Map from "../components/Map";
 import Review from "../components/Review";
-import StarIcon from "@material-ui/icons/Star";
+
 import "react-dates/lib/css/_datepicker.css";
-import RecommendationOptions from "../components/RecommendationOptions";
+import "../styles/Hotel.css";
 
 const Hotel = () => {
   const moment = extendMoment(Moment);
@@ -86,10 +89,6 @@ const Hotel = () => {
     history.push("/");
   };
 
-  const handleNotLoggedIn = () => {
-    history.push("/");
-  };
-
   const handleBookedDates = (date) => {
     let bookedRanges = [];
     let blocked;
@@ -148,6 +147,7 @@ const Hotel = () => {
             <Map center={{ lat: item.lat, lng: item.lon }} />
           </div>
         </div>
+
         <div className="hotel-reviews">
           {/* <div className="review_rating">
             <StarIcon style={{ fontSize: 30, fill: "FF9529" }} />
@@ -155,6 +155,7 @@ const Hotel = () => {
               {item.start_rating}({item.reviews_count})
             </p>
           </div> */}
+          <h1>Reviews</h1>
           {reviews && reviews.map((review) => <Review review={review} />)}
         </div>
         <p className="Recc_section">More like this:</p>
@@ -181,7 +182,7 @@ const Hotel = () => {
                   setStartDate(startDate);
                 }} // PropTypes.func.isRequired,
                 focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                onFocusChange={(focusedInput) => setFocusedInput(focusedInput)} // PropTypes.func.isRequired,
+                onFocusChange={(input) => setFocusedInput(input)} // PropTypes.func.isRequired,
                 isDayBlocked={handleBookedDates}
               />
             </div>
@@ -221,7 +222,8 @@ const Hotel = () => {
               {
                 <button
                   className="book"
-                  onClick={user ? handleBooking : handleNotLoggedIn}
+                  onClick={handleBooking }
+                  disabled={!user}
                 >
                   <p>Book</p>
                 </button>

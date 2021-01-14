@@ -1,17 +1,16 @@
-/* eslint-disable */
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Toaster } from 'react-hot-toast';
 
 import Home from "./screens/Home";
 import Profile from "./screens/Profile";
 import Hotel from "./screens/Hotel";
 import Wishlist from "./screens/Wishlist";
 import ListingInput from "./screens/ListingInput";
-import HostListings from "./screens/HostListings";
 import RecentlyBooked from "./screens/RecentlyBooked";
 import Header from "./components/Header";
 import ScrollToTop from "./components/ScrollToTop";
-import Header_solid from "./components/Header_solid";
+import HeaderSolid from "./components/HeaderSolid";
 import Footer from "./components/Footer";
 import ListingsPage from "./screens/ListingsPage";
 import Login from "./components/Login";
@@ -20,6 +19,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+      <Toaster />
         <ScrollToTop>
           <Switch>
             <Route path="/ListingsPage">
@@ -28,17 +28,12 @@ function App() {
               <Footer />
             </Route>
             <Route path="/ListingInput">
-              <Header_solid />
+              <HeaderSolid />
               <ListingInput />
               <Footer />
             </Route>
-            <Route path="/HostListings">
-              <Header />
-              <HostListings />
-              <Footer />
-            </Route>
             <Route path="/Wishlist">
-            <Header_solid/>
+            <HeaderSolid/>
             <Wishlist/>
             <Footer/>
             </Route>
@@ -47,19 +42,19 @@ function App() {
             </Route>
 
             <Route path="/Profile">
-              <Header_solid />
+              <HeaderSolid />
               <Profile />
               <Footer />
             </Route>
 
             <Route path="/RecentlyBooked">
-              <Header_solid />
+              <HeaderSolid />
               <RecentlyBooked />
               <Footer />
             </Route>
 
             <Route path="/Hotel">
-              <Header_solid />
+              <HeaderSolid />
               <Hotel />
               <Footer />
             </Route>

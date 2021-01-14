@@ -105,3 +105,6 @@ dist
 
 # Database seed data
 rapidAPIKeys.js
+
+# API Requests
+atlantis.http
