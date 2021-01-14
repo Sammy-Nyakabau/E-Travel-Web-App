@@ -1,10 +1,11 @@
-/* eslint-disable */
 import React from "react";
 import "react-dates/initialize";
-import "../styles/RecentlyBooked.css";
 import { useHistory } from "react-router-dom";
-import Wishlist_card from "../components/Wishlist_card";
+
+import WishlistCard from "../components/WishlistCard";
 import { useStateValue } from "../reducer/StateProvider";
+
+import "../styles/RecentlyBooked.css";
 
 const Wishlist = () => {
   const [{ wishlist }, dispatch] = useStateValue();
@@ -23,8 +24,7 @@ const Wishlist = () => {
       <h1 className="recentlybookedlocations">Wishlist:</h1>
       <div className="booked_card">
         {wishlist.map((listing) => (
-          <Wishlist_card
-            // style={{ borderbottom: "none" }}
+          <WishlistCard
             img={listing.image}
             location={listing.address}
             title={listing.name}

@@ -1,16 +1,15 @@
-/* eslint-disable */
 import React from "react";
-import "../styles/Header_solid.css";
 import { Link } from "react-router-dom";
-import "semantic-ui-css/semantic.min.css";
-import Header_login from "./Header_login";
-import Dropdown_options from "./Dropdown_options";
+
+import HeaderLogin from "./HeaderLogin";
+import DropdownOptions from "./DropdownOptions";
 
 import { useStateValue } from "../reducer/StateProvider";
 
-import "../styles/Header_solid.css";
+import "semantic-ui-css/semantic.min.css";
+import "../styles/HeaderSolid.css";
 
-function Header_solid() {
+function HeaderSolid() {
   const [{ user }, dispatch] = useStateValue();
 
   const resetListings = () => {
@@ -39,7 +38,7 @@ function Header_solid() {
       </Link>
 
       <div className="header_right">
-        {user ? <Dropdown_options /> : <div></div>}
+        {user ? <DropdownOptions /> : <div></div>}
         <Link
           to="/ListingsPage"
           style={{ color: "inherit", textDecoration: "inherit" }}
@@ -52,11 +51,11 @@ function Header_solid() {
             <p onClick={() => logOut()}>Logout</p>
           </Link>
         ) : (
-          <Header_login />
+          <HeaderLogin />
         )}
       </div>
     </div>
   );
 }
 
-export default Header_solid;
+export default HeaderSolid;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/RecentlyBooked_card.css";
+import "../styles/RecentlyBookedCard.css";
 import Moment from "moment";
 import { extendMoment } from "moment-range";
 import {
@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-function RecentlyBooked_card({
+function RecentlyBookedCard({
   img,
   location,
   title,
@@ -93,8 +93,8 @@ function RecentlyBooked_card({
       const { data: reviews } = await getReviews(item._id);
       let numberOfReviews = reviews.length;
 
-      reviews.forEach((review) => {
-        ratings.push(review.review.rating);
+      reviews.forEach((res) => {
+        ratings.push(res.review.rating);
       });
 
       let averageRatings = ratings.reduce((a, b) => a + b) / ratings.length;
@@ -185,4 +185,4 @@ function RecentlyBooked_card({
   );
 }
 
-export default RecentlyBooked_card;
+export default RecentlyBookedCard;

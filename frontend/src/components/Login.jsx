@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { toast } from "react-toastify";
+import toast from 'react-hot-toast';
 import { login, register } from "../services/authService";
 import { useStateValue } from "../reducer/StateProvider";
 import "../styles/Login.css";
@@ -28,6 +28,7 @@ function Login() {
         });
 
         history.push("/");
+        toast.success(`Logged In as ${user.username}`);
       } else {
         // the user is logged out
         dispatch({
@@ -38,6 +39,7 @@ function Login() {
     } catch (ex) {
       if (ex.response && ex.response.status >= 400) {
         console.log("error");
+        toast.error('Invalid Password/Username!');
       }
     }
   };
@@ -53,9 +55,11 @@ function Login() {
         user: user,
       });
       history.push("/");
+      toast.success(`Logged In as ${user.username}`);
     } catch (ex) {
       if (ex.response && ex.response.status >= 400) {
         console.log("error");
+        toast.error('Invalid Password/Username!');
       }
     }
   };
@@ -63,9 +67,6 @@ function Login() {
   return (
     <div className="login__container">
       <div className="type_selector">
-        <div className="Guest">
-          <p style={{ cursor: "pointer" }}>Guest</p>
-        </div>
         <div className="Host">
           <p style={{ cursor: "pointer" }}>Host</p>
         </div>

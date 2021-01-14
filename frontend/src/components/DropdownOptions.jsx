@@ -1,10 +1,10 @@
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
-import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import "../styles/Dropdown_options.css";
 
-const Dropdown_options = () => (
+import "../styles/DropdownOptions.css";
+
+const DropdownOptions = () => (
   <Dropdown
     icon='user'
     className='icon'
@@ -21,4 +21,4 @@ const Dropdown_options = () => (
   </Dropdown>
 )
 
-export default Dropdown_options
+export default DropdownOptions

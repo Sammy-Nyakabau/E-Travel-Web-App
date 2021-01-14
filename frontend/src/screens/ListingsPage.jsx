@@ -1,8 +1,11 @@
-/* eslint-disable */
 import React, { useState, useEffect } from "react";
-import "../styles/SearchPage.css";
 import { useHistory } from "react-router-dom";
-import SearchPage_banner from "../components/SearchPage_banner";
+import _ from "lodash";
+import { Button } from "@material-ui/core";
+import Pagination from "@material-ui/lab/Pagination";
+import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+
 import {
   getListings,
   getListingsByType,
@@ -11,13 +14,11 @@ import {
   getFilteredListings,
   getFilteredListingsCount,
 } from "../services/listingsService";
-import _ from "lodash";
 import { useStateValue } from "../reducer/StateProvider";
-import { Button } from "@material-ui/core";
 import SearchResult from "../components/SearchResult";
-import Pagination from "@material-ui/lab/Pagination";
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import SearchPageBanner from "../components/SearchPageBanner";
+
+import "../styles/SearchPage.css";
 
 function ListingsPage() {
   const history = useHistory();
@@ -49,9 +50,6 @@ function ListingsPage() {
         );
         setListings(result);
         setCount(total);
-
-        console.log(search.location);
-        console.log(search.guests);
       } else {
         const { data: result } = await getListings(currentPage);
         const { data: total } = await getListingsCount();
@@ -63,8 +61,7 @@ function ListingsPage() {
     };
 
     fetchListings();
-
-  }, [currentPage, propertyType]);
+  }, [currentPage, propertyType, search]);
 
   const handleSelected = (listing) => {
     dispatch({
@@ -78,146 +75,171 @@ function ListingsPage() {
     let sort = { ...sortColumn };
     sort.order = sortColumn.order === "asc" ? "desc" : "asc";
     setSortColumn({
-        path: "night_price",
-        order: sort.order,
+      path: "night_price",
+      order: sort.order,
     });
-    filterListings()
+    filterListings();
   };
-  
+
   const sortByRating = () => {
     let sort = { ...sortColumn };
     sort.order = sortColumn.order === "asc" ? "desc" : "asc";
     setSortColumn({
-        path: "start_rating",
-        order: sort.order,
+      path: "start_rating",
+      order: sort.order,
     });
-    filterListings()
+    filterListings();
   };
-  
+
   const sortByReviews = () => {
     let sort = { ...sortColumn };
     sort.order = sortColumn.order === "asc" ? "desc" : "asc";
     setSortColumn({
-        path: "reviews_count",
-        order: sort.order,
+      path: "reviews_count",
+      order: sort.order,
     });
-    filterListings()
+    filterListings();
   };
 
   const sortByRooms = () => {
     let sort = { ...sortColumn };
     sort.order = sortColumn.order === "asc" ? "desc" : "asc";
     setSortColumn({
-        path: "num_of_rooms",
-        order: sort.order,
+      path: "num_of_rooms",
+      order: sort.order,
     });
-    filterListings()
+    filterListings();
   };
-  
+
   const sortByBaths = () => {
     let sort = { ...sortColumn };
     sort.order = sortColumn.order === "asc" ? "desc" : "asc";
     setSortColumn({
-        path: "num_of_baths",
-        order: sort.order,
+      path: "num_of_baths",
+      order: sort.order,
     });
-    filterListings()
+    filterListings();
   };
 
   const filterListings = () => {
     let filtered = listings;
     filtered = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
-    setListings(filtered)
-  }
+    setListings(filtered);
+  };
 
   return (
     <div className="searchPage">
-      <SearchPage_banner />
+      <SearchPageBanner />
       <div className="searchPage__info">
         {search && (
           <p>
             {count} stays · {search.startDate.date()}{" "}
-            {search.startDate.format("MMMM")} {search.startDate.format("YYYY")} to {search.endDate.date()}{" "}
-            {search.endDate.format("MMMM")} {search.endDate.format("YYYY")}· {search.guests} guest(s)
+            {search.startDate.format("MMMM")} {search.startDate.format("YYYY")}{" "}
+            to {search.endDate.date()} {search.endDate.format("MMMM")}{" "}
+            {search.endDate.format("YYYY")}· {search.guests} guest(s)
           </p>
         )}
         <Button variant="outlined" onClick={sortByPrice}>
           Price
-          {
-            sortColumn.path === "night_price" ? 
+          {sortColumn.path === "night_price" ? (
             sortColumn.order === "asc" ? (
-              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+              <span
+                style={{ position: "relative", bottom: -1, color: "#e13a83" }}
+              >
                 <ArrowUpwardIcon fontSize="small" color="inherit" />
               </span>
             ) : (
-              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
-                <ArrowDownwardIcon fontSize="small" color="inherit"/>
+              <span
+                style={{ position: "relative", bottom: -1, color: "#e13a83" }}
+              >
+                <ArrowDownwardIcon fontSize="small" color="inherit" />
               </span>
-            ) : <span></span>
-          }
+            )
+          ) : (
+            <span></span>
+          )}
         </Button>
         <Button variant="outlined" onClick={sortByRating}>
           Rating
-          {
-            sortColumn.path === "start_rating" ? 
+          {sortColumn.path === "start_rating" ? (
             sortColumn.order === "asc" ? (
-              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+              <span
+                style={{ position: "relative", bottom: -1, color: "#e13a83" }}
+              >
                 <ArrowUpwardIcon fontSize="small" color="inherit" />
               </span>
             ) : (
-              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
-                <ArrowDownwardIcon fontSize="small" color="inherit"/>
+              <span
+                style={{ position: "relative", bottom: -1, color: "#e13a83" }}
+              >
+                <ArrowDownwardIcon fontSize="small" color="inherit" />
               </span>
-            ) : <span></span>
-          }
+            )
+          ) : (
+            <span></span>
+          )}
         </Button>
         <Button variant="outlined" onClick={sortByReviews}>
           Reviews
-          {
-            sortColumn.path === "reviews_count" ? 
+          {sortColumn.path === "reviews_count" ? (
             sortColumn.order === "asc" ? (
-              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+              <span
+                style={{ position: "relative", bottom: -1, color: "#e13a83" }}
+              >
                 <ArrowUpwardIcon fontSize="small" color="inherit" />
               </span>
             ) : (
-              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
-                <ArrowDownwardIcon fontSize="small" color="inherit"/>
+              <span
+                style={{ position: "relative", bottom: -1, color: "#e13a83" }}
+              >
+                <ArrowDownwardIcon fontSize="small" color="inherit" />
               </span>
-            ) : <span></span>
-          }
+            )
+          ) : (
+            <span></span>
+          )}
         </Button>
         <Button variant="outlined" onClick={sortByRooms}>
           Rooms
-          {
-            sortColumn.path === "num_of_rooms" ? 
+          {sortColumn.path === "num_of_rooms" ? (
             sortColumn.order === "asc" ? (
-              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+              <span
+                style={{ position: "relative", bottom: -1, color: "#e13a83" }}
+              >
                 <ArrowUpwardIcon fontSize="small" color="inherit" />
               </span>
             ) : (
-              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
-                <ArrowDownwardIcon fontSize="small" color="inherit"/>
+              <span
+                style={{ position: "relative", bottom: -1, color: "#e13a83" }}
+              >
+                <ArrowDownwardIcon fontSize="small" color="inherit" />
               </span>
-            ) : <span></span>
-          }
+            )
+          ) : (
+            <span></span>
+          )}
         </Button>
-        
+
         <Button variant="outlined" onClick={sortByBaths}>
           Bathrooms
-          {
-            sortColumn.path === "num_of_baths" ? 
+          {sortColumn.path === "num_of_baths" ? (
             sortColumn.order === "asc" ? (
-              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
+              <span
+                style={{ position: "relative", bottom: -1, color: "#e13a83" }}
+              >
                 <ArrowUpwardIcon fontSize="small" color="inherit" />
               </span>
             ) : (
-              <span style={{position: "relative", bottom: -1, color: "#e13a83"}}>
-                <ArrowDownwardIcon fontSize="small" color="inherit"/>
+              <span
+                style={{ position: "relative", bottom: -1, color: "#e13a83" }}
+              >
+                <ArrowDownwardIcon fontSize="small" color="inherit" />
               </span>
-            ) : <span></span>
-          }
+            )
+          ) : (
+            <span></span>
+          )}
         </Button>
-        
       </div>
 
       {listings.map((listing) => (

@@ -1,10 +1,10 @@
 import React from "react";
 import "react-dates/initialize";
 
-import "../styles/SearchPage_banner.css";
+import "../styles/SearchPageBanner.css";
 import "react-dates/lib/css/_datepicker.css";
 
-const SearchPage_banner = () => {
+const SearchPageBanner = () => {
   
   return (
     <div className="banner1">
@@ -13,5 +13,5 @@ const SearchPage_banner = () => {
   );
 }
  
-export default SearchPage_banner;
+export default SearchPageBanner;
 

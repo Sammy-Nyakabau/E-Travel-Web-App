@@ -1,12 +1,15 @@
+/* eslint-disable no-empty-pattern */
 import React, { useState } from "react";
-import "../styles/RecentlyBooked_card.css";
 import StarIcon from "@material-ui/icons/Star";
-import "../styles/SearchResult.css";
-import { useStateValue } from "../reducer/StateProvider";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-function Wishlist_card({
+import { useStateValue } from "../reducer/StateProvider";
+
+import "../styles/RecentlyBookedCard.css";
+import "../styles/SearchResult.css";
+
+function WishlistCard({
   item,
   id,
   img,
@@ -15,7 +18,6 @@ function Wishlist_card({
   description,
   star,
   price,
-  total,
   property_type,
   onClick,
 }) {
@@ -71,4 +73,4 @@ function Wishlist_card({
   );
 }
 
-export default Wishlist_card;
+export default WishlistCard;
